@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tales From The Chain</title>
+  <meta name="description" content="Astounding stories of degenerate finance. Store, latest news, the ecosystem, PulseDex, tools and onboarding — all in one comic book.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/comic.css">
+</head>
+<body>
+
+<!-- Shared ink, halftone and hand-drawn filters for every scene -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- wobbly, imperfect brush line -->
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="ink-heavy" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- Ben-Day dots -->
+    <pattern id="dots-red" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <circle cx="3.5" cy="3.5" r="2" fill="#d63a2a"/>
+    </pattern>
+    <pattern id="dots-ink" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle cx="3" cy="3" r="1.3" fill="#1f1a17"/>
+    </pattern>
+    <pattern id="dots-blue" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <circle cx="3.5" cy="3.5" r="1.8" fill="#3a8cc0"/>
+    </pattern>
+    <pattern id="dots-yellow" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3.5" r="2.2" fill="#f4c534"/>
+    </pattern>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#1f1a17" stroke-width="1.4"/>
+    </pattern>
+    <pattern id="bricks" width="40" height="20" patternUnits="userSpaceOnUse">
+      <rect width="40" height="20" fill="#b8452f"/>
+      <path d="M0 0.5H40M0 10.5H40M10 0V10M30 10V20" stroke="#6e2418" stroke-width="1.6" fill="none"/>
+    </pattern>
+    <pattern id="pegboard" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#c9a36a"/>
+      <circle cx="8" cy="8" r="1.8" fill="#5a3e1c"/>
+    </pattern>
+    <pattern id="stripes" width="44" height="10" patternUnits="userSpaceOnUse">
+      <rect width="22" height="10" fill="#d63a2a"/>
+      <rect x="22" width="22" height="10" fill="#fbf1d8"/>
+    </pattern>
+  </defs>
+</svg>
+
+<main class="comic-page" id="top">
+
+  <!-- ================= COVER MASTHEAD ================= -->
+  <header class="masthead">
+    <div class="issue-box" aria-label="Issue number 1, price 10 sats">
+      <div class="no">No. 1</div>
+      <div class="price">10&cent;</div>
+      <div class="date">Sats only</div>
+    </div>
+
+    <div class="title-block">
+      <h1 class="logo"><span class="small">Tales from</span>The Chain!</h1>
+      <p class="tagline">Astounding stories of degenerate finance!</p>
+    </div>
+
+    <div class="seal" aria-label="Approved by the Degen Code Authority">
+      <div>APPROVED<b>DCA</b>DEGEN CODE<br>AUTHORITY</div>
+    </div>
+  </header>
+
+  <!-- ================= THE PAGE OF PANELS ================= -->
+  <nav class="panels" aria-label="Main sections">
+
+    <!-- ---------- SPLASH / HERO ---------- -->
+    <section class="panel panel--splash" aria-labelledby="splash-title">
+      <svg class="scene" viewBox="0 0 680 490" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <!-- sunburst -->
+        <rect width="680" height="490" fill="#f4c534"/>
+        <g fill="url(#dots-red)" opacity=".75">
+          <polygon points="240,215 1040,215 1025,371"/>
+          <polygon points="240,215 979,521 905,659"/>
+          <polygon points="240,215 806,781 684,880"/>
+          <polygon points="240,215 546,954 396,1000"/>
+          <polygon points="240,215 240,1015 84,1000"/>
+          <polygon points="240,215 -66,954 -204,880"/>
+          <polygon points="240,215 -326,781 -425,659"/>
+          <polygon points="240,215 -499,521 -545,371"/>
+          <polygon points="240,215 -560,215 -545,59"/>
+          <polygon points="240,215 -499,-91 -425,-229"/>
+          <polygon points="240,215 -326,-351 -204,-450"/>
+          <polygon points="240,215 -66,-524 84,-570"/>
+          <polygon points="240,215 240,-585 396,-570"/>
+          <polygon points="240,215 546,-524 684,-450"/>
+          <polygon points="240,215 806,-351 905,-229"/>
+          <polygon points="240,215 979,-91 1025,59"/>
+        </g>
+
+        <!-- the moon, grinning -->
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="600" cy="78" r="52" fill="#fbf1d8"/>
+          <circle cx="600" cy="78" r="52" fill="url(#dots-yellow)" stroke="none" opacity=".7"/>
+          <circle cx="578" cy="58" r="8" fill="none" stroke-width="2.5"/>
+          <circle cx="625" cy="100" r="6" fill="none" stroke-width="2.5"/>
+          <path d="M583 72q6-7 12 0M607 70q6-7 12 0" fill="none"/>
+          <path d="M582 92q18 18 38 0" fill="none"/>
+          <path d="M572 88l6 2M623 88l6-3" fill="none" stroke-width="2"/>
+        </g>
+
+        <!-- rocket headed for it -->
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round">
+          <path d="M450 250 C 470 210, 485 170, 505 140" fill="none" stroke-dasharray="3 9" stroke-linecap="round" stroke-width="3.5"/>
+          <g transform="translate(528 118) rotate(45)">
+            <path class="flame" d="M-9 36 L0 64 L9 36 Z" fill="#d63a2a"/>
+            <path d="M-5 36 L0 50 L5 36 Z" fill="#f4c534" stroke-width="1.5"/>
+            <path d="M-13 18 L-24 38 L-10 34 Z M13 18 L24 38 L10 34 Z" fill="#d63a2a"/>
+            <path d="M0 -34 C 14 -20, 14 20, 10 36 L -10 36 C -14 20, -14 -20, 0 -34 Z" fill="#fbf1d8"/>
+            <path d="M-11.5 -6h23" fill="none"/>
+            <path d="M0 -34 C 8 -26, 10 -18, 11.5 -6 L-11.5 -6 C -10 -18, -8 -26, 0 -34Z" fill="#d63a2a"/>
+            <circle cx="0" cy="8" r="6" fill="#9fd0e6"/>
+          </g>
+        </g>
+
+        <!-- ticker-tape machine under its glass dome -->
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M490 470 L 510 400 L 610 400 L 630 470 Z" fill="#8a5a2b"/>
+          <path d="M490 470 L 510 400 L 610 400 L 630 470 Z" fill="url(#hatch)" opacity=".35" stroke="none"/>
+          <path d="M500 400 h120 v-12 h-120 z" fill="#c9923b"/>
+          <circle cx="560" cy="345" r="20" fill="#c9923b"/>
+          <circle cx="560" cy="345" r="5" fill="#1f1a17"/>
+          <path d="M545 330l30 30M575 330l-30 30" fill="none" stroke-width="2"/>
+          <path d="M517 388 L517 318 C 517 262, 603 262, 603 318 L603 388" fill="#9fd0e6" fill-opacity=".45"/>
+          <path d="M530 300 C 534 285, 545 277, 556 275" fill="none" stroke="#fffaf0" stroke-width="5"/>
+          <circle cx="560" cy="262" r="7" fill="#c9923b"/>
+        </g>
+
+        <!-- ticker tape streaming across the page -->
+        <g filter="url(#ink)">
+          <path id="tape" d="M-10 470 C 60 430, 110 392, 175 392 S 300 408, 360 398 S 480 352, 540 350" fill="none" stroke="#1f1a17" stroke-width="30" stroke-linecap="butt"/>
+          <path d="M-10 470 C 60 430, 110 392, 175 392 S 300 408, 360 398 S 480 352, 540 350" fill="none" stroke="#fbf1d8" stroke-width="24"/>
+        </g>
+        <text font-family="Patrick Hand, cursive" font-size="15" fill="#1f1a17" letter-spacing="1" dy="5">
+          <textPath href="#tape" startOffset="9%">PEPE &#9650;4,269% &#183; DOGE &#9650;420% &#183; WAGMI &#9650;&#8734; &#183; NGMI &#9660;99% &#183; FUD &#9660;0</textPath>
+        </text>
+
+        <!-- our humble anon -->
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+          <!-- suit -->
+          <path d="M80 495 C 90 400, 120 350, 180 335 L 300 335 C 360 350, 395 400, 405 495 Z" fill="#3a8cc0"/>
+          <path d="M80 495 C 90 400, 120 350, 180 335 L 300 335 C 360 350, 395 400, 405 495 Z" fill="url(#dots-ink)" opacity=".25" stroke="none"/>
+          <!-- shirt + tie -->
+          <path d="M195 335 L 240 420 L 285 335 Z" fill="#fffaf0"/>
+          <path d="M228 345 L 252 345 L 247 360 L 256 420 L 240 440 L 224 420 L 233 360 Z" fill="#d63a2a"/>
+          <path d="M195 335 L 222 390 L 205 385 M285 335 L 258 390 L 275 385" fill="none"/>
+          <!-- neck -->
+          <path d="M210 300 L 210 340 Q 240 355 270 340 L 270 300" fill="#f6bf94"/>
+          <!-- ears -->
+          <path d="M172 232 C 155 225, 152 262, 176 266" fill="#f6bf94"/>
+          <path d="M308 232 C 325 225, 328 262, 304 266" fill="#f6bf94"/>
+          <!-- head -->
+          <path d="M175 205 C 172 270, 195 318, 240 320 C 285 318, 308 270, 305 205 C 300 160, 180 160, 175 205 Z" fill="#f6bf94"/>
+          <path d="M180 270 C 190 300, 210 314, 232 318" fill="none" stroke-width="2" opacity=".6"/>
+          <!-- cheek hatching -->
+          <path d="M188 262l8-8M192 270l8-8M284 262l8-8M280 270l8-8" fill="none" stroke-width="2"/>
+          <!-- eyebrows way up -->
+          <path d="M196 196 Q 212 180 228 192M252 192 Q 268 180 284 196" fill="none" stroke-width="5"/>
+          <!-- saucer eyes -->
+          <ellipse cx="213" cy="220" rx="15" ry="19" fill="#fffaf0"/>
+          <ellipse cx="267" cy="220" rx="15" ry="19" fill="#fffaf0"/>
+          <circle cx="216" cy="222" r="4.5" fill="#1f1a17"/>
+          <circle cx="264" cy="222" r="4.5" fill="#1f1a17"/>
+          <!-- nose -->
+          <path d="M240 228 C 236 245, 232 250, 244 253" fill="none" stroke-width="3"/>
+          <!-- big open grin -->
+          <path d="M205 268 C 215 305, 265 305, 275 268 Z" fill="#7a1d14"/>
+          <path d="M207 270 L 273 270 L 270 280 L 210 280 Z" fill="#fffaf0" stroke-width="2.5"/>
+          <path d="M226 296 C 234 290, 246 290, 254 296" fill="#d63a2a" stroke-width="2"/>
+          <!-- fedora -->
+          <path d="M150 178 C 150 160, 330 160, 330 178 C 330 192, 150 192, 150 178 Z" fill="#6b5a45"/>
+          <path d="M178 172 C 176 130, 186 100, 205 96 C 220 104, 260 104, 275 96 C 294 100, 304 130, 302 172 Z" fill="#6b5a45"/>
+          <path d="M205 96 C 222 120, 258 120, 275 96" fill="none" stroke-width="3"/>
+          <path d="M179 152 C 220 160, 260 160, 301 152 L 302 172 C 260 178, 220 178, 178 172 Z" fill="#1f1a17"/>
+          <path d="M150 178 C 150 160, 330 160, 330 178" fill="url(#hatch)" opacity=".35" stroke="none"/>
+          <!-- press card in the hatband -->
+          <path d="M280 150 l20 -4 l3 16 l-20 4 z" fill="#fffaf0" stroke-width="2"/>
+          <!-- sweat drops -->
+          <path d="M160 200 C 150 215, 156 224, 162 224 C 168 224, 170 214, 160 200 Z" fill="#9fd0e6" stroke-width="2.5"/>
+          <path d="M320 205 C 311 218, 316 226, 321 226 C 327 226, 329 217, 320 205 Z" fill="#9fd0e6" stroke-width="2.5"/>
+          <!-- shock lines -->
+          <path d="M130 150 l-22 -14M126 180 l-26 0M140 122 l-14 -20M350 150 l22 -14M354 180 l26 0M340 122 l14 -20" fill="none" stroke-width="4"/>
+          <!-- hands gripping the tape -->
+          <path d="M150 372 C 140 392, 150 418, 172 418 C 192 418, 200 400, 196 380 C 190 366, 160 360, 150 372 Z" fill="#f6bf94"/>
+          <path d="M162 392 h26M160 402 h28" fill="none" stroke-width="2.5"/>
+          <path d="M332 372 C 322 392, 332 418, 354 416 C 374 414, 380 396, 376 378 C 370 364, 342 360, 332 372 Z" fill="#f6bf94"/>
+          <path d="M342 390 h26M342 400 h28" fill="none" stroke-width="2.5"/>
+        </g>
+
+        <!-- KA-CHING! -->
+        <g class="sfx-wiggle">
+          <polygon filter="url(#ink-heavy)" points="578,108 591,144 622,112 613,157 654,143 630,176 660,186 636,203 654,225 625,228 633,258 602,242 600,284 578,259 558,277 553,244 515,267 525,232 490,229 522,203 476,184 530,178 496,139 541,155 539,121 565,145" transform="translate(0 20)" fill="#d63a2a" stroke="#1f1a17" stroke-width="4" stroke-linejoin="round"/>
+          <text x="572" y="222" text-anchor="middle" font-family="Bangers, Impact, sans-serif" font-size="36" fill="#f4c534" stroke="#1f1a17" stroke-width="2" paint-order="stroke" transform="rotate(-10 572 212)">KA-CHING!</text>
+        </g>
+      </svg>
+
+      <div class="caption">Episode&nbsp;1: in which our humble anon discovers the chain&hellip;</div>
+
+      <div class="balloon" style="top:6%; left:49%; max-width:27%; --tail-x:14%;">
+        <span id="splash-title">Holy moly! I aped my whole paycheck&hellip; and we're up <b>4,269%!</b></span>
+      </div>
+
+      <div class="splash-cta">
+        <a class="btn btn--red" href="onboarding.html">Start reading &#9656;</a>
+        <a class="btn" href="#store">gm, ser</a>
+      </div>
+    </section>
+
+    <!-- ---------- STORE ---------- -->
+    <a class="panel panel--store" id="store" href="store.html" aria-label="Store: Degen Mart">
+      <svg class="scene" viewBox="0 0 480 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="480" height="240" fill="#9fd0e6"/>
+        <rect width="480" height="240" fill="url(#dots-blue)" opacity=".5"/>
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <!-- clouds -->
+          <path d="M20 40 q10-18 28-8 q10-16 28 0 q18-4 16 14 h-70 q-12-2-2-6z" fill="#fffaf0" stroke-width="2.5"/>
+          <!-- building -->
+          <rect x="70" y="28" width="360" height="222" fill="url(#bricks)"/>
+          <!-- sign -->
+          <rect x="100" y="36" width="300" height="46" fill="#fbf1d8"/>
+          <text x="250" y="70" text-anchor="middle" font-family="Bangers, Impact, sans-serif" font-size="34" fill="#d63a2a" stroke="#1f1a17" stroke-width="1.2" letter-spacing="2">DEGEN MART</text>
+          <!-- awning -->
+          <path d="M80 92 L420 92 L438 128 L62 128 Z" fill="url(#stripes)"/>
+          <path d="M62 128 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0" fill="#d63a2a"/>
+          <!-- shop window -->
+          <rect x="92" y="148" width="170" height="92" fill="#fffaf0"/>
+          <rect x="92" y="148" width="170" height="92" fill="url(#dots-blue)" opacity=".35" stroke="none"/>
+          <path d="M92 190 h170M92 228 h170" fill="none"/>
+          <!-- coins, jars, a rocket toy -->
+          <circle cx="118" cy="176" r="12" fill="#f4c534"/><text x="118" y="182" text-anchor="middle" font-family="Bangers" font-size="16" fill="#1f1a17" stroke="none">B</text>
+          <circle cx="146" cy="178" r="10" fill="#f4c534"/><text x="146" y="183" text-anchor="middle" font-family="Bangers" font-size="13" fill="#1f1a17" stroke="none">E</text>
+          <path d="M172 160 h22 v30 h-22z" fill="#6ea35a"/><path d="M170 160 h26" fill="none"/>
+          <text x="183" y="181" text-anchor="middle" font-family="Patrick Hand" font-size="10" fill="#1f1a17" stroke="none">HOPIUM</text>
+          <path d="M226 188 l8 -28 l8 28 z" fill="#d63a2a"/>
+          <path d="M112 226 h26 v-26 h-26z" fill="#d63a2a"/>
+          <text x="125" y="218" text-anchor="middle" font-family="Patrick Hand" font-size="9" fill="#fbf1d8" stroke="none">NFT</text>
+          <path d="M156 226 h40 v-22 h-40z" fill="#f4c534"/>
+          <text x="176" y="220" text-anchor="middle" font-family="Patrick Hand" font-size="9" fill="#1f1a17" stroke="none">MERCH</text>
+          <!-- price tag -->
+          <path d="M206 204 h46 l8 10 l-8 10 h-46 z" fill="#fffaf0"/>
+          <text x="228" y="219" text-anchor="middle" font-family="Bangers" font-size="13" fill="#d63a2a" stroke="none">100x!</text>
+          <!-- door -->
+          <rect x="300" y="140" width="96" height="104" fill="#6ea35a"/>
+          <rect x="314" y="152" width="68" height="48" fill="#fffaf0"/>
+          <circle cx="384" cy="212" r="4" fill="#f4c534"/>
+          <!-- OPEN sign -->
+          <path d="M320 160 l28 -10 l28 10" fill="none" stroke-width="2"/>
+          <rect x="320" y="160" width="56" height="26" fill="#d63a2a"/>
+          <text x="348" y="179" text-anchor="middle" font-family="Bangers" font-size="16" fill="#fbf1d8" stroke="none">OPEN 24/7</text>
+          <!-- sidewalk -->
+          <path d="M0 238 h480" fill="none" stroke-width="4"/>
+        </g>
+      </svg>
+      <div class="caption">Meanwhile, down on Main Street&hellip;</div>
+      <div class="balloon" style="top:30%; right:3%; max-width:40%; --tail-x:30%; --tail-skew:-10deg;">C'mon in, anon! We take <b>moon money!</b></div>
+      <span class="goto">Continued in <strong>The Store</strong></span>
+      <span class="pow" aria-hidden="true">BAM!</span>
+    </a>
+
+    <!-- ---------- LATEST NEWS ---------- -->
+    <a class="panel panel--news" href="news.html" aria-label="Latest news: The Daily Degen">
+      <svg class="scene" viewBox="0 0 480 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="480" height="240" fill="#f4c534"/>
+        <!-- speed lines -->
+        <g stroke="#d63a2a" stroke-width="3" stroke-linecap="round" opacity=".7" filter="url(#ink)">
+          <path d="M0 20 L120 90M0 70 L110 110M0 130 L100 135M0 190 L110 160M0 240 L120 185M480 20 L360 90M480 70 L370 110M480 130 L380 135M480 190 L370 160M480 240 L360 185"/>
+        </g>
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <g transform="translate(46 14) scale(.9)"><g transform="rotate(-3 240 130)">
+            <!-- newspaper -->
+            <rect x="100" y="30" width="280" height="230" fill="#fbf1d8"/>
+            <path d="M100 30 h280 v230 h-280z" fill="url(#dots-ink)" opacity=".08" stroke="none"/>
+            <text x="240" y="62" text-anchor="middle" font-family="UnifrakturMaguntia, serif" font-size="28" fill="#1f1a17" stroke="none">The Daily Degen</text>
+            <path d="M110 70 h260M110 74 h260" fill="none" stroke-width="1.5"/>
+            <text x="240" y="106" text-anchor="middle" font-family="Bangers, Impact" font-size="36" fill="#1f1a17" stroke="none" letter-spacing="1">WHALES SPOTTED!</text>
+            <text x="240" y="124" text-anchor="middle" font-family="Patrick Hand" font-size="13" fill="#d63a2a" stroke="none">MARKET GOES "BRRR" &#8212; EXPERTS BAFFLED</text>
+            <!-- photo: a whale spouting -->
+            <rect x="112" y="134" width="120" height="84" fill="#9fd0e6"/>
+            <rect x="112" y="134" width="120" height="84" fill="url(#dots-blue)" opacity=".6" stroke="none"/>
+            <path d="M126 196 C 130 170, 190 166, 214 184 l12 -12 l-2 20 l-10 -2 C 196 206, 140 214, 126 196 Z" fill="#3a8cc0"/>
+            <circle cx="150" cy="186" r="2.5" fill="#1f1a17"/>
+            <path d="M166 170 c-4-12 -2-18 0-22 M166 170 c-8-8 -14-10 -18-10 M166 170 c6-8 12-10 16-10" fill="none" stroke-width="2.5"/>
+            <path d="M112 212 q15-6 30 0 t30 0 t30 0 t30 0" fill="none" stroke-width="2"/>
+            <!-- column text -->
+            <path d="M244 140 h124M244 150 h118M244 160 h124M244 170 h110M244 180 h124M244 190 h120M244 200 h124M244 210 h96M112 228 h256M112 238 h240" fill="none" stroke-width="2" opacity=".55"/>
+          </g>
+          <!-- hands holding the paper -->
+          <path d="M84 150 C 70 150, 66 180, 80 186 L 112 186 C 118 176, 118 160, 110 152 Z" fill="#f6bf94"/>
+          <path d="M84 162 h24M84 172 h26" fill="none" stroke-width="2"/>
+          <path d="M398 136 C 412 136, 416 166, 402 172 L 370 172 C 364 162, 364 146, 372 138 Z" fill="#f6bf94"/>
+          <path d="M374 148 h24M372 158 h26" fill="none" stroke-width="2"/>
+        </g></g>
+      </svg>
+      <div class="caption caption--right">Hot off the press!</div>
+      <div class="balloon balloon--shout" style="top:4%; left:2%; max-width:34%;"><span></span>Extra! Extra! <b>Read all about it!</b></div>
+      <span class="goto">Continued in <strong>Latest News</strong></span>
+      <span class="pow" aria-hidden="true">WHAM!</span>
+    </a>
+
+    <!-- ---------- ECOSYSTEM ---------- -->
+    <a class="panel panel--eco" href="ecosystem.html" aria-label="Ecosystem: the metropolis of tomorrow">
+      <svg class="scene" viewBox="0 0 480 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="480" height="240" fill="#9fd0e6"/>
+        <rect width="480" height="240" fill="url(#dots-yellow)" opacity=".35"/>
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <!-- ringed planet -->
+          <circle cx="436" cy="96" r="20" fill="#f4c534"/>
+          <ellipse cx="436" cy="98" rx="36" ry="8" fill="none" transform="rotate(-15 436 98)"/>
+          <!-- needle tower -->
+          <path d="M120 240 L 132 90 L 140 90 L 152 240 Z" fill="#fbf1d8"/>
+          <ellipse cx="136" cy="86" rx="38" ry="12" fill="#d63a2a"/>
+          <ellipse cx="136" cy="80" rx="18" ry="8" fill="#9fd0e6"/>
+          <path d="M136 72 v-24" fill="none"/>
+          <circle cx="136" cy="46" r="4" fill="#d63a2a"/>
+          <text x="136" y="92" text-anchor="middle" font-family="Bangers" font-size="11" fill="#fbf1d8" stroke="none">DEX</text>
+          <!-- glass domes -->
+          <path d="M20 240 C 20 170, 110 170, 110 240 Z" fill="#fffaf0" fill-opacity=".85"/>
+          <path d="M40 200 C 50 186, 64 180, 76 180" fill="none" stroke="#3a8cc0" stroke-width="4"/>
+          <text x="65" y="230" text-anchor="middle" font-family="Bangers" font-size="18" fill="#3a8cc0" stroke="none">DAO</text>
+          <path d="M300 240 C 300 150, 440 150, 440 240 Z" fill="#6ea35a"/>
+          <path d="M300 240 C 300 150, 440 150, 440 240 Z" fill="url(#hatch)" opacity=".2" stroke="none"/>
+          <path d="M370 158 v82M318 200 h104" fill="none" stroke-width="2"/>
+          <text x="370" y="232" text-anchor="middle" font-family="Bangers" font-size="18" fill="#fbf1d8" stroke="none">NFT</text>
+          <!-- boxy tower -->
+          <path d="M190 240 L 190 120 L 250 110 L 250 240 Z" fill="#f4c534"/>
+          <path d="M200 135h40M200 150h40M200 165h40M200 180h40M200 195h40M200 210h40" fill="none" stroke-width="2"/>
+          <path d="M250 110 l14 18 v112 h-14" fill="#c9923b"/>
+          <!-- monorail -->
+          <path d="M0 150 C 120 170, 300 130, 480 150" fill="none" stroke-width="6"/>
+          <path d="M0 150 C 120 170, 300 130, 480 150" fill="none" stroke="#fbf1d8" stroke-width="2"/>
+          <path d="M270 140 C 272 124, 350 122, 360 136 L 358 146 C 320 150, 290 150, 270 150 Z" fill="#d63a2a"/>
+          <path d="M290 132h14M312 131h14M334 131h12" fill="none" stroke="#fbf1d8" stroke-width="4"/>
+          <text x="316" y="147" text-anchor="middle" font-family="Bangers" font-size="9" fill="#fbf1d8" stroke="none">BRIDGE EXPRESS</text>
+          <!-- flying saucer -->
+          <g transform="translate(20 30)"><ellipse cx="250" cy="50" rx="44" ry="11" fill="#fbf1d8"/>
+          <path d="M228 46 C 230 26, 270 26, 272 46" fill="#9fd0e6"/>
+          <circle class="blink" cx="222" cy="52" r="3" fill="#d63a2a"/>
+          <circle class="blink" cx="250" cy="55" r="3" fill="#f4c534"/>
+          <circle class="blink" cx="278" cy="52" r="3" fill="#d63a2a"/>
+          <path d="M190 58 h-30M196 66 h-40M204 42 h-24" fill="none" stroke-width="2.5"/></g>
+        </g>
+        <text x="80" y="54" font-family="Bangers" font-size="30" fill="#fbf1d8" stroke="#1f1a17" stroke-width="2" paint-order="stroke" transform="rotate(-8 80 54)">WHOOSH!</text>
+      </svg>
+      <div class="caption caption--right">The metropolis of tomorrow&hellip; all on-chain!</div>
+      <span class="goto">Continued in <strong>Ecosystem</strong></span>
+      <span class="pow" aria-hidden="true">ZOOM!</span>
+    </a>
+
+    <!-- ---------- PULSEDEX ---------- -->
+    <a class="panel panel--pulse" href="pulsedex.html" aria-label="PulseDex: the laboratory">
+      <svg class="scene" viewBox="0 0 380 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="380" height="240" fill="#6ea35a"/>
+        <rect width="380" height="240" fill="url(#dots-ink)" opacity=".18"/>
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <!-- antenna + sparks -->
+          <path d="M300 70 L300 40 M288 40 h24" fill="none"/>
+          <path d="M300 38 l-10 -14 l8 2 l-6 -14 M300 38 l12 -12 l-8 0 l10 -12" fill="none" stroke="#f4c534" stroke-width="3"/>
+          <!-- console -->
+          <path d="M30 240 L 30 70 L 350 70 L 350 240 Z" fill="#b9c6be"/>
+          <path d="M30 240 L 30 70 L 350 70 L 350 240 Z" fill="url(#hatch)" opacity=".15" stroke="none"/>
+          <!-- CRT -->
+          <rect x="50" y="86" width="170" height="112" rx="16" fill="#1f3a2a"/>
+          <rect x="50" y="86" width="170" height="112" rx="16" fill="url(#dots-ink)" opacity=".3" stroke="none"/>
+          <!-- candles going parabolic -->
+          <g stroke="#b8f59c" stroke-width="2.5">
+            <path d="M70 170 v14M84 164 v18M98 168 v10M112 152 v20M126 140 v22M140 142 v14M154 122 v24M168 110 v22M182 96 v24"/>
+          </g>
+          <g stroke="none">
+            <rect x="66" y="172" width="8" height="8" fill="#b8f59c"/><rect x="80" y="166" width="8" height="12" fill="#b8f59c"/>
+            <rect x="94" y="170" width="8" height="6" fill="#ff8a78"/><rect x="108" y="154" width="8" height="14" fill="#b8f59c"/>
+            <rect x="122" y="143" width="8" height="15" fill="#b8f59c"/><rect x="136" y="145" width="8" height="8" fill="#ff8a78"/>
+            <rect x="150" y="125" width="8" height="18" fill="#b8f59c"/><rect x="164" y="113" width="8" height="16" fill="#b8f59c"/>
+            <rect x="178" y="99" width="8" height="18" fill="#b8f59c"/>
+          </g>
+          <path d="M64 186 C 110 180, 160 150, 206 94" fill="none" stroke="#b8f59c" stroke-width="2" stroke-dasharray="4 4"/>
+          <!-- dials -->
+          <circle cx="262" cy="110" r="22" fill="#fbf1d8"/>
+          <path d="M262 110 L 276 96" fill="none" stroke="#d63a2a"/>
+          <path d="M246 104 l4 2M262 92 v4M278 104 l-4 2" fill="none" stroke-width="2"/>
+          <circle cx="318" cy="110" r="18" fill="#fbf1d8"/>
+          <path d="M318 110 L 330 104" fill="none" stroke="#d63a2a"/>
+          <!-- blinky lights -->
+          <circle class="blink" cx="252" cy="152" r="7" fill="#d63a2a"/>
+          <circle class="blink" cx="274" cy="152" r="7" fill="#f4c534"/>
+          <circle class="blink" cx="296" cy="152" r="7" fill="#b8f59c"/>
+          <circle class="blink" cx="318" cy="152" r="7" fill="#d63a2a"/>
+          <!-- switches -->
+          <rect x="60" y="210" width="260" height="20" fill="#8a9690"/>
+          <path d="M80 220 l6 -10M110 220 l-6 -10M140 220 l6 -10M170 220 l6 -10M200 220 l-6 -10M230 220 l6 -10M260 220 l6 -10M290 220 l-6 -10" fill="none" stroke-width="4"/>
+          <text x="290" y="190" text-anchor="middle" font-family="Bangers" font-size="15" fill="#1f1a17" stroke="none">PULSE-O-TRON</text>
+        </g>
+        <text x="20" y="46" font-family="Bangers" font-size="26" fill="#f4c534" stroke="#1f1a17" stroke-width="2" paint-order="stroke" transform="rotate(-6 20 46)">BLEEP! BLOOP!</text>
+      </svg>
+      <div class="caption caption--right">In the laboratory&hellip;</div>
+      <div class="balloon balloon--up" style="bottom:5%; left:3%; max-width:44%; --tail-x:60%;">Great galaxies! The pulse is <b>off the charts!</b></div>
+      <span class="goto">Continued in <strong>PulseDex</strong></span>
+      <span class="pow" aria-hidden="true">ZAP!</span>
+    </a>
+
+    <!-- ---------- TOOLS ---------- -->
+    <a class="panel panel--tools" href="tools.html" aria-label="Tools: the workshop">
+      <svg class="scene" viewBox="0 0 280 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="280" height="240" fill="url(#pegboard)"/>
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <!-- wrench -->
+          <g transform="rotate(-35 90 110)">
+            <path d="M84 60 L 96 60 L 96 170 L 84 170 Z" fill="#b9c6be"/>
+            <path d="M70 40 C 70 60, 110 60, 110 40 L 102 40 L 102 52 L 78 52 L 78 40 Z" fill="#b9c6be"/>
+            <circle cx="90" cy="176" r="14" fill="#b9c6be"/>
+            <circle cx="90" cy="176" r="6" fill="#c9a36a"/>
+          </g>
+          <!-- hammer -->
+          <path d="M160 60 h60 v22 h-60 z" fill="#6b5a45"/>
+          <path d="M160 60 c-10 4 -10 18 0 22" fill="#6b5a45"/>
+          <path d="M184 82 h12 v96 h-12 z" fill="#d63a2a"/>
+          <!-- screwdriver -->
+          <path d="M232 60 h14 v54 h-14 z" fill="#f4c534"/>
+          <path d="M236 114 h6 v48 l-3 8 l-3 -8 z" fill="#b9c6be"/>
+          <!-- toolbox -->
+          <path d="M20 190 h240 v50 h-240 z" fill="#d63a2a"/>
+          <path d="M100 190 v-14 h80 v14" fill="none" stroke-width="6"/>
+          <path d="M20 204 h240" fill="none"/>
+          <text x="24" y="228" font-family="Bangers" font-size="15" fill="#fbf1d8" stroke="none" letter-spacing="1">DEGEN TOOL CO.</text>
+        </g>
+        <g class="sfx-wiggle">
+          <polygon filter="url(#ink-heavy)" points="205,3 217,23 236,14 234,37 263,35 241,57 267,71 236,76 247,98 224,92 223,124 205,99 188,119 184,95 159,102 172,77 139,71 166,56 152,38 176,37 171,10 193,22" transform="translate(-150 60) scale(.8)" fill="#f4c534" stroke="#1f1a17" stroke-width="4"/>
+          <text x="14" y="120" font-family="Bangers" font-size="22" fill="#d63a2a" stroke="#1f1a17" stroke-width="1" transform="rotate(-12 14 120)">KLANG!</text>
+        </g>
+      </svg>
+      <div class="caption">The right tool for every degen!</div>
+      <span class="goto">Continued in <strong>Tools</strong></span>
+      <span class="pow" aria-hidden="true">KLONK!</span>
+    </a>
+
+    <!-- ---------- ONBOARDING ---------- -->
+    <a class="panel panel--onboard" href="onboarding.html" aria-label="Onboarding: board the rocket">
+      <svg class="scene" viewBox="0 0 1180 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="1180" height="250" fill="#f4c534"/>
+        <g fill="url(#dots-red)" opacity=".45">
+          <polygon points="1000,120 1900,120 1877,320"/>
+          <polygon points="1000,120 1811,510 1704,681"/>
+          <polygon points="1000,120 1561,824 1390,931"/>
+          <polygon points="1000,120 1200,997 1000,1020"/>
+          <polygon points="1000,120 800,997 610,931"/>
+          <polygon points="1000,120 439,824 296,681"/>
+          <polygon points="1000,120 189,510 123,320"/>
+          <polygon points="1000,120 100,120 123,-80"/>
+          <polygon points="1000,120 189,-270 296,-441"/>
+          <polygon points="1000,120 439,-584 610,-691"/>
+          <polygon points="1000,120 800,-757 1000,-780"/>
+          <polygon points="1000,120 1200,-757 1390,-691"/>
+          <polygon points="1000,120 1561,-584 1704,-441"/>
+          <polygon points="1000,120 1811,-270 1877,-80"/>
+        </g>
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+          <!-- ground -->
+          <path d="M0 225 C 300 218, 800 232, 1180 222 L 1180 250 L 0 250 Z" fill="#c9923b"/>
+          <!-- ticket booth -->
+          <path d="M60 225 L 60 110 L 190 110 L 190 225 Z" fill="#fbf1d8"/>
+          <path d="M40 112 L 125 60 L 210 112 Z" fill="url(#stripes)"/>
+          <rect x="78" y="128" width="94" height="56" fill="#9fd0e6"/>
+          <path d="M78 184 h94" fill="none" stroke-width="5"/>
+          <text x="125" y="212" text-anchor="middle" font-family="Bangers" font-size="22" fill="#d63a2a" stroke="none" letter-spacing="1">TICKETS</text>
+          <!-- attendant in the window -->
+          <path d="M100 184 C 100 164, 150 164, 150 184 Z" fill="#d63a2a"/>
+          <circle cx="125" cy="152" r="14" fill="#f6bf94"/>
+          <path d="M108 146 h34 l-4 -10 h-26 z" fill="#3a8cc0"/>
+          <path d="M118 157 q7 6 14 0" fill="none" stroke-width="2.5"/>
+          <circle cx="120" cy="150" r="1.8" fill="#1f1a17"/><circle cx="131" cy="150" r="1.8" fill="#1f1a17"/>
+          <!-- signpost -->
+          <g transform="translate(200 0)">
+          <path d="M300 225 v-120" fill="none" stroke-width="6"/>
+          <path d="M250 110 h120 l18 16 l-18 16 h-120 z" fill="#fbf1d8"/>
+          <text x="312" y="132" text-anchor="middle" font-family="Bangers" font-size="18" fill="#1f1a17" stroke="none">NEW ANONS &#8594;</text>
+          <path d="M260 150 h110 l-16 14 l16 14 h-110 z" fill="#d63a2a"/>
+          <text x="318" y="171" text-anchor="middle" font-family="Bangers" font-size="15" fill="#fbf1d8" stroke="none">NGMI &#8592; (NOT YOU)</text>
+          </g>
+          <!-- smoke puffs -->
+          <path d="M860 228 c-30 0 -40 -30 -14 -36 c-6 -24 30 -30 36 -10 c14 -20 44 -8 34 12 c26 -4 30 30 6 34 z" fill="#fffaf0"/>
+          <path d="M1090 228 c-30 0 -34 -26 -10 -32 c-4 -22 30 -26 34 -8 c16 -16 40 -4 30 14 c20 0 22 26 0 26 z" fill="#fffaf0"/>
+          <!-- gantry -->
+          <path d="M1070 225 V 40 M1110 225 V 40 M1070 40 h40" fill="none" stroke-width="4"/>
+          <path d="M1070 60 l40 30 M1110 60 l-40 30 M1070 100 l40 30 M1110 100 l-40 30 M1070 140 l40 30 M1110 140 l-40 30 M1070 180 l40 30 M1110 180 l-40 30" fill="none" stroke-width="2.5"/>
+          <path d="M1070 90 h-30" fill="none" stroke-width="4"/>
+          <!-- the big rocket -->
+          <path d="M990 20 C 1030 60, 1034 150, 1024 205 L 956 205 C 946 150, 950 60, 990 20 Z" fill="#fbf1d8"/>
+          <path d="M990 20 C 1004 34, 1014 50, 1020 72 L 960 72 C 966 50, 976 34, 990 20 Z" fill="#d63a2a"/>
+          <path d="M956 160 L 924 222 L 958 205 Z M1024 160 L 1056 222 L 1022 205 Z" fill="#d63a2a"/>
+          <path d="M978 205 L 990 222 L 1002 205" fill="#3a8cc0"/>
+          <circle cx="990" cy="110" r="16" fill="#9fd0e6"/>
+          <circle cx="990" cy="110" r="10" fill="none" stroke-width="2"/>
+          <text x="990" y="160" text-anchor="middle" font-family="Bangers" font-size="18" fill="#d63a2a" stroke="none">WAGMI-1</text>
+          <!-- boarding stairs -->
+          <path d="M880 225 L 940 130 L 958 130" fill="none" stroke-width="4"/>
+          <path d="M896 200 h20M908 180 h20M920 160 h20" fill="none" stroke-width="3"/>
+        </g>
+        <text x="720" y="200" text-anchor="middle" font-family="Bangers" font-size="26" fill="#1f1a17" transform="rotate(3 720 200)">10&#8230; 9&#8230; 8&#8230;</text>
+      </svg>
+      <div class="caption">Your adventure begins here, anon&hellip;</div>
+      <p class="shout-title">All aboard! Next stop: the moon!</p>
+      <div class="balloon" style="top:34%; left:17%; max-width:21%; --tail-x:6%; --tail-skew:40deg;">Step right up! <b>First ride's on the house!</b></div>
+      <span class="goto">Continued in <strong>Onboarding</strong></span>
+      <span class="pow" aria-hidden="true">BLAST!</span>
+    </a>
+
+  </nav>
+
+  <footer class="fine-print">
+    <span>&copy; Tales From The Chain Comics Group &middot; All rights reserved, ser</span>
+    <span>NFA &middot; DYOR &middot; Not financial advice. Printed on 100% recycled memes.</span>
+  </footer>
+</main>
+
+</body>
+</html>
