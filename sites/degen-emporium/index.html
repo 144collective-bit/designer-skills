@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Degen Emporium</title>
   <meta name="description" content="The Degen Emporium — PulseChain news, alpha and merch for the degens who HODL." />
-  <meta name="theme-color" content="#0b0f0a" />
+  <meta name="theme-color" content="#060806" />
   <link rel="icon" type="image/png" href="assets/pulsechain-logo.png" />
   <meta property="og:title" content="The Degen Emporium" />
   <meta property="og:description" content="PulseChain news, alpha and merch for the degens who HODL." />
@@ -15,75 +15,127 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="is-loading">
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-logo">
+      <span class="preloader-ring"></span>
+      <img src="assets/pulsechain-logo.png" alt="" width="96" height="96" />
+    </div>
+    <svg class="preloader-ekg" viewBox="0 0 300 60"><path d="M0 30h90l10-18 14 36 14-46 12 42 10-14h150" /></svg>
+  </div>
+
+  <!-- ===== Ambient layers ===== -->
+  <canvas class="bg-canvas" id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- ===== Header ===== -->
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="The Degen Emporium home">
-        <img src="assets/pulsechain-logo.png" alt="" width="40" height="40" />
+        <span class="brand-mark"><img src="assets/pulsechain-logo.png" alt="" width="40" height="40" /></span>
         <span class="brand-text">The Degen <span>Emporium</span></span>
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main">
-        <a href="#news">News</a>
-        <a href="#store">Store</a>
-        <a href="#ecosystem">Ecosystem</a>
-        <a href="#community">Community</a>
+        <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+        <a href="#news" data-section="news">News</a>
+        <a href="#store" data-section="store">Store</a>
+        <a href="#ecosystem" data-section="ecosystem">Start Here</a>
+        <a href="#community" data-section="community">Community</a>
       </nav>
 
       <div class="header-actions">
-        <a class="cart-btn" href="#store" aria-label="Cart, 0 items">
+        <button class="icon-btn cart-btn" id="cart-open" aria-label="Open cart, 0 items" aria-controls="cart" aria-expanded="false">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2" /><circle cx="9" cy="20" r="1.4" /><circle cx="17" cy="20" r="1.4" /></svg>
           <span class="cart-count" id="cart-count">0</span>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        </button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-  </header>
 
-  <!-- ===== Price ticker ===== -->
-  <div class="ticker" aria-label="PulseChain token prices">
-    <div class="ticker-track" id="ticker-track"></div>
-  </div>
+    <!-- Price ticker -->
+    <div class="ticker" aria-label="PulseChain token prices">
+      <span class="ticker-live"><span class="live-dot"></span>Live</span>
+      <div class="ticker-viewport">
+        <div class="ticker-track" id="ticker-track"></div>
+      </div>
+    </div>
+  </header>
 
   <main id="main">
     <!-- ===== Hero ===== -->
     <section class="hero" id="top">
-      <div class="hero-banner">
-        <img src="assets/degen-emporium-banner.jpg" alt="The Degen Emporium — masked degen in a suit with HODL pin beside the graffiti logo" width="1500" height="500" />
+      <div class="hero-banner" id="hero-banner">
+        <div class="hero-banner-inner" id="hero-parallax">
+          <img src="assets/degen-emporium-banner.jpg" alt="The Degen Emporium — masked degen in a suit with HODL pin beside the graffiti logo" width="1500" height="500" />
+        </div>
+        <div class="hero-sheen" aria-hidden="true"></div>
       </div>
+
+      <svg class="hero-ekg" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="ekg-grad" x1="0" x2="1">
+            <stop offset="0" stop-color="#00e0ff" stop-opacity="0" />
+            <stop offset=".2" stop-color="#00e0ff" />
+            <stop offset=".5" stop-color="#8000ff" />
+            <stop offset=".8" stop-color="#e21bdc" />
+            <stop offset="1" stop-color="#ff0a2c" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0 60h560l18-34 26 76 28-96 24 88 18-34h766" />
+      </svg>
+
       <div class="container hero-content">
         <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Powered by PulseChain</p>
-        <h1>News, alpha &amp; drip<br /><span class="grad-text">for PulseChain degens.</span></h1>
-        <p class="lede">Daily PulseChain headlines, ecosystem deep-dives and limited-run merch — all under one roof. No suits required (but we won't judge).</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="word">News,</span> <span class="word">alpha</span> <span class="word">&amp;</span> <span class="word">drip</span></span>
+          <span class="line grad-line"><span class="word"><span class="g">for</span></span> <span class="word"><span class="g">PulseChain</span></span> <span class="word"><span class="g">degens.</span></span></span>
+        </h1>
+        <p class="lede">Daily PulseChain headlines, ecosystem deep-dives and limited-run merch, all under one roof. No suits required (but we won't judge).</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#store">Shop the drop</a>
-          <a class="btn btn-ghost" href="#news">Read the news</a>
+          <a class="btn btn-primary magnetic" href="#store"><span>Shop the drop</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+          <a class="btn btn-ghost magnetic" href="#news"><span>Read the news</span></a>
         </div>
         <ul class="hero-stats" aria-label="Site highlights">
-          <li><strong>24/7</strong><span>PulseChain coverage</span></li>
-          <li><strong>100%</strong><span>Degen approved</span></li>
-          <li><strong>0</strong><span>Paper hands</span></li>
+          <li class="stat spot"><strong><span data-count="24">0</span>/7</strong><span>PulseChain coverage</span></li>
+          <li class="stat spot"><strong><span data-count="100">0</span>%</strong><span>Degen approved</span></li>
+          <li class="stat spot"><strong><span data-count="0">0</span></strong><span>Paper hands</span></li>
         </ul>
       </div>
+
+      <a class="scroll-cue" href="#news" aria-label="Scroll to news"><span></span></a>
     </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>HODL</span><i>✦</i><span class="outline">PulseChain</span><i>✦</i><span>Degen Emporium</span><i>✦</i><span class="outline">Diamond Hands</span><i>✦</i>
+        <span>HODL</span><i>✦</i><span class="outline">PulseChain</span><i>✦</i><span>Degen Emporium</span><i>✦</i><span class="outline">Diamond Hands</span><i>✦</i>
+      </div>
+    </div>
+    </div>
 
     <!-- ===== News ===== -->
     <section class="section" id="news" aria-labelledby="news-title">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="kicker">Latest from the chain</p>
-            <h2 id="news-title">PulseChain News</h2>
+            <h2 id="news-title">PulseChain <span class="grad-text">News</span></h2>
           </div>
           <a class="link-arrow" href="#news">All stories <span aria-hidden="true">→</span></a>
         </div>
 
-        <div class="news-filters" role="tablist" aria-label="Filter news">
+        <div class="news-filters reveal" role="tablist" aria-label="Filter news">
+          <span class="filter-indicator" id="filter-indicator" aria-hidden="true"></span>
           <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
           <button class="chip" role="tab" aria-selected="false" data-filter="ecosystem">Ecosystem</button>
           <button class="chip" role="tab" aria-selected="false" data-filter="defi">DeFi</button>
@@ -92,9 +144,10 @@
         </div>
 
         <!-- Sample stories — replace with your own articles / CMS feed -->
-        <div class="news-grid">
-          <article class="news-card news-feature" data-cat="ecosystem">
+        <div class="news-grid" id="news-grid">
+          <article class="news-card news-feature spot tilt reveal" data-cat="ecosystem">
             <div class="news-thumb thumb-a" aria-hidden="true">
+              <div class="orbit"><span></span><span></span><span></span></div>
               <img src="assets/pulsechain-logo.png" alt="" />
             </div>
             <div class="news-body">
@@ -105,7 +158,7 @@
             </div>
           </article>
 
-          <article class="news-card" data-cat="defi">
+          <article class="news-card spot tilt reveal" data-cat="defi">
             <div class="news-thumb thumb-b" aria-hidden="true"><span>PLSX</span></div>
             <div class="news-body">
               <span class="tag tag-blue">DeFi</span>
@@ -114,7 +167,7 @@
             </div>
           </article>
 
-          <article class="news-card" data-cat="guides">
+          <article class="news-card spot tilt reveal" data-cat="guides">
             <div class="news-thumb thumb-c" aria-hidden="true"><span>BRIDGE</span></div>
             <div class="news-body">
               <span class="tag tag-pink">Guides</span>
@@ -123,7 +176,7 @@
             </div>
           </article>
 
-          <article class="news-card" data-cat="defi">
+          <article class="news-card spot tilt reveal" data-cat="defi">
             <div class="news-thumb thumb-d" aria-hidden="true"><span>HEX</span></div>
             <div class="news-body">
               <span class="tag tag-blue">DeFi</span>
@@ -132,7 +185,7 @@
             </div>
           </article>
 
-          <article class="news-card" data-cat="community">
+          <article class="news-card spot tilt reveal" data-cat="community">
             <div class="news-thumb thumb-e" aria-hidden="true"><span>HODL</span></div>
             <div class="news-body">
               <span class="tag tag-yellow">Community</span>
@@ -141,7 +194,7 @@
             </div>
           </article>
 
-          <article class="news-card" data-cat="guides">
+          <article class="news-card spot tilt reveal" data-cat="guides">
             <div class="news-thumb thumb-f" aria-hidden="true"><span>SAFU</span></div>
             <div class="news-body">
               <span class="tag tag-pink">Guides</span>
@@ -156,17 +209,25 @@
     <!-- ===== Store ===== -->
     <section class="section section-store" id="store" aria-labelledby="store-title">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="kicker">The Emporium</p>
-            <h2 id="store-title">Fresh Drops</h2>
+            <h2 id="store-title">Fresh <span class="grad-text">Drops</span></h2>
           </div>
-          <a class="link-arrow" href="#store">Shop all <span aria-hidden="true">→</span></a>
+          <div class="countdown" aria-label="Next drop countdown">
+            <span class="countdown-label">Next drop in</span>
+            <div class="countdown-units" id="countdown">
+              <span><b data-unit="d">00</b><small>d</small></span>
+              <span><b data-unit="h">00</b><small>h</small></span>
+              <span><b data-unit="m">00</b><small>m</small></span>
+              <span><b data-unit="s">00</b><small>s</small></span>
+            </div>
+          </div>
         </div>
 
         <!-- Sample products — swap names, prices and images for your real inventory -->
         <div class="product-grid">
-          <article class="product">
+          <article class="product spot tilt reveal" data-id="hoodie" data-name="HODL Heavyweight Hoodie" data-price="65" data-swatch="a">
             <div class="product-img prod-a">
               <span class="badge">New</span>
               <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 28l18-10h24l18 10 14 22-16 8-6-8v52H38V50l-6 8-16-8z" /><text x="60" y="72" text-anchor="middle">HODL</text></svg>
@@ -175,10 +236,10 @@
               <h3>HODL Heavyweight Hoodie</h3>
               <p class="price">$65</p>
             </div>
-            <button class="btn btn-add" data-add>Add to cart</button>
+            <button class="btn btn-add" data-add><span>Add to cart</span></button>
           </article>
 
-          <article class="product">
+          <article class="product spot tilt reveal" data-id="tee" data-name="Pulse Heartbeat Tee" data-price="32" data-swatch="b">
             <div class="product-img prod-b">
               <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M26 34l20-12h28l20 12 12 18-16 8-4-6v48H34V54l-4 6-16-8z" /><path class="pulse" d="M38 64h12l4-8 6 18 6-26 5 16h11" /></svg>
             </div>
@@ -186,10 +247,10 @@
               <h3>Pulse Heartbeat Tee</h3>
               <p class="price">$32</p>
             </div>
-            <button class="btn btn-add" data-add>Add to cart</button>
+            <button class="btn btn-add" data-add><span>Add to cart</span></button>
           </article>
 
-          <article class="product">
+          <article class="product spot tilt reveal" data-id="cap" data-name="Degen Snapback Cap" data-price="28" data-swatch="c">
             <div class="product-img prod-c">
               <span class="badge badge-hot">Hot</span>
               <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M22 70c0-24 16-40 38-40s38 16 38 40z" /><path d="M20 70h86c4 0 6 8 0 10H20z" /><text x="60" y="62" text-anchor="middle">DEGEN</text></svg>
@@ -198,10 +259,10 @@
               <h3>Degen Snapback Cap</h3>
               <p class="price">$28</p>
             </div>
-            <button class="btn btn-add" data-add>Add to cart</button>
+            <button class="btn btn-add" data-add><span>Add to cart</span></button>
           </article>
 
-          <article class="product">
+          <article class="product spot tilt reveal" data-id="stickers" data-name="Diamond Hands Sticker Pack" data-price="12" data-swatch="d">
             <div class="product-img prod-d">
               <span class="badge">Limited</span>
               <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 16l30 16v34c0 18-14 30-30 38-16-8-30-20-30-38V32z" /><path class="pulse" d="M36 62h12l5-10 7 22 6-30 5 18h13" /></svg>
@@ -210,17 +271,22 @@
               <h3>Diamond Hands Sticker Pack</h3>
               <p class="price">$12</p>
             </div>
-            <button class="btn btn-add" data-add>Add to cart</button>
+            <button class="btn btn-add" data-add><span>Add to cart</span></button>
           </article>
         </div>
 
-        <div class="promo">
+        <div class="promo reveal">
           <div class="promo-text">
             <p class="kicker">Pay the degen way</p>
             <h3>Crypto checkout coming soon</h3>
             <p>Pay with PLS and your favorite PulseChain tokens. Get on the list for early access and members-only drops.</p>
+            <a class="btn btn-primary magnetic" href="#community"><span>Get early access</span></a>
           </div>
-          <img class="promo-logo" src="assets/pulsechain-logo.png" alt="PulseChain logo" width="160" height="160" />
+          <div class="promo-visual" aria-hidden="true">
+            <span class="promo-halo"></span>
+            <span class="promo-ring"></span>
+            <img class="promo-logo" src="assets/pulsechain-logo.png" alt="" width="160" height="160" />
+          </div>
         </div>
       </div>
     </section>
@@ -228,32 +294,36 @@
     <!-- ===== Ecosystem ===== -->
     <section class="section" id="ecosystem" aria-labelledby="eco-title">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="kicker">New to the chain?</p>
-            <h2 id="eco-title">Start Here</h2>
+            <h2 id="eco-title">Start <span class="grad-text">Here</span></h2>
           </div>
         </div>
         <div class="eco-grid">
-          <a class="eco-card" href="#news">
+          <a class="eco-card spot tilt reveal" href="#news">
             <span class="eco-num">01</span>
             <h3>What is PulseChain?</h3>
             <p>The basics: how it works, why it exists and what makes it different.</p>
+            <span class="eco-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="eco-card" href="#news">
+          <a class="eco-card spot tilt reveal" href="#news">
             <span class="eco-num">02</span>
             <h3>Set up a wallet</h3>
             <p>Add the network, secure your seed phrase and stay safe out there.</p>
+            <span class="eco-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="eco-card" href="#news">
+          <a class="eco-card spot tilt reveal" href="#news">
             <span class="eco-num">03</span>
             <h3>Bridge &amp; swap</h3>
             <p>Move assets over and make your first swap on a PulseChain DEX.</p>
+            <span class="eco-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="eco-card" href="#news">
+          <a class="eco-card spot tilt reveal" href="#news">
             <span class="eco-num">04</span>
             <h3>Explore dApps</h3>
             <p>Our curated list of tools, dashboards and projects worth a look.</p>
+            <span class="eco-arrow" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -262,16 +332,18 @@
     <!-- ===== Newsletter / community ===== -->
     <section class="section" id="community" aria-labelledby="community-title">
       <div class="container">
-        <div class="newsletter">
+        <div class="newsletter spot reveal">
           <div>
             <p class="kicker">Join the Emporium</p>
-            <h2 id="community-title">Get the alpha in your inbox</h2>
+            <h2 id="community-title">Get the alpha in your <span class="grad-text">inbox</span></h2>
             <p>One email a week. PulseChain news, new drops and exclusive discount codes. No spam, no rugs.</p>
           </div>
           <form class="signup" id="signup" novalidate>
             <label class="sr-only" for="email">Email address</label>
-            <input id="email" type="email" name="email" placeholder="you@degenmail.com" autocomplete="email" required />
-            <button class="btn btn-primary" type="submit">Subscribe</button>
+            <div class="input-wrap">
+              <input id="email" type="email" name="email" placeholder="you@degenmail.com" autocomplete="email" required />
+            </div>
+            <button class="btn btn-primary magnetic" type="submit"><span>Subscribe</span></button>
             <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -281,10 +353,11 @@
 
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
+    <div class="footer-glow" aria-hidden="true"></div>
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="brand" href="#top">
-          <img src="assets/pulsechain-logo.png" alt="" width="36" height="36" />
+          <span class="brand-mark"><img src="assets/pulsechain-logo.png" alt="" width="36" height="36" /></span>
           <span class="brand-text">The Degen <span>Emporium</span></span>
         </a>
         <p>PulseChain news and merch for people who HODL.</p>
@@ -322,11 +395,43 @@
         </ul>
       </div>
     </div>
+    <p class="footer-wordmark" aria-hidden="true">DEGEN</p>
     <div class="container footer-bottom">
       <p>&copy; <span id="year">2026</span> The Degen Emporium. All rights reserved.</p>
-      <p class="disclaimer">Nothing on this site is financial advice. Crypto is volatile — do your own research.</p>
+      <p class="disclaimer">Nothing on this site is financial advice. Crypto is volatile, so do your own research.</p>
     </div>
   </footer>
+
+  <!-- ===== Cart drawer ===== -->
+  <div class="drawer-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your bag</h2>
+      <button class="icon-btn" id="cart-close" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+    </div>
+    <div class="cart-ship">
+      <p id="ship-msg">Add $100 for free shipping</p>
+      <div class="ship-bar"><span id="ship-bar"></span></div>
+    </div>
+    <ul class="cart-items" id="cart-items"></ul>
+    <div class="cart-empty" id="cart-empty">
+      <img src="assets/pulsechain-logo.png" alt="" width="72" height="72" />
+      <p>Your bag is empty.<br />Time to stack some drip.</p>
+    </div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Subtotal</span><strong id="cart-total">$0</strong></div>
+      <button class="btn btn-primary btn-block" id="checkout"><span>Checkout</span></button>
+      <p class="cart-note">Crypto checkout coming soon.</p>
+    </div>
+  </aside>
+
+  <!-- ===== Toasts & misc ===== -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <button class="to-top" id="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+  </button>
 
   <script src="main.js"></script>
 </body>
