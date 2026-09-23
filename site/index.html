@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tales From The Chain</title>
-  <meta name="description" content="Astounding stories of degenerate finance. Store, latest news, the ecosystem, PulseDex, tools and onboarding — all in one comic book.">
+  <title>The Degen Emporium</title>
+  <meta name="description" content="Purveyors of fine degeneracy. Store, latest news, the ecosystem, PulseDex, tools and onboarding — all in one comic book.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
@@ -52,6 +52,19 @@
       <rect width="22" height="10" fill="#d63a2a"/>
       <rect x="22" width="22" height="10" fill="#fbf1d8"/>
     </pattern>
+    <!-- The Emporium glyph: two interlocked chevrons -->
+    <symbol id="glyph" viewBox="-12 -12 24 24">
+      <path d="M-8 -10 L1 -3 L-8 4 M8 -4 L-1 3 L8 10" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="square" stroke-linejoin="miter"/>
+    </symbol>
+    <!-- monogram lattice for the tie -->
+    <pattern id="tie-glyph" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#2f9e57"/>
+      <path d="M0 6 H12 M6 0 V12" stroke="#1d6b3a" stroke-width="2.2"/>
+      <path d="M3 3 l6 6 M9 3 l-6 6" stroke="#8fe39f" stroke-width="1.1"/>
+    </pattern>
+    <pattern id="dots-green" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <circle cx="3.5" cy="3.5" r="2.1" fill="#2f9e57"/>
+    </pattern>
   </defs>
 </svg>
 
@@ -66,12 +79,12 @@
     </div>
 
     <div class="title-block">
-      <h1 class="logo"><span class="small">Tales from</span>The Chain!</h1>
-      <p class="tagline">Astounding stories of degenerate finance!</p>
+      <h1 class="logo"><span class="small">The</span>Degen<span class="banner">Emporium</span></h1>
+      <p class="tagline">Purveyors of fine degeneracy &middot; Est. block #1</p>
     </div>
 
     <div class="seal" aria-label="Approved by the Degen Code Authority">
-      <div>APPROVED<b>DCA</b>DEGEN CODE<br>AUTHORITY</div>
+      <div><svg class="seal-glyph" aria-hidden="true"><use href="#glyph"/></svg>APPROVED<br>DEGEN CODE<br>AUTHORITY</div>
     </div>
   </header>
 
@@ -81,9 +94,9 @@
     <!-- ---------- SPLASH / HERO ---------- -->
     <section class="panel panel--splash" aria-labelledby="splash-title">
       <svg class="scene" viewBox="0 0 680 490" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <!-- sunburst -->
-        <rect width="680" height="490" fill="#f4c534"/>
-        <g fill="url(#dots-red)" opacity=".75">
+        <!-- lime sunburst -->
+        <rect width="680" height="490" fill="#b6e324"/>
+        <g fill="url(#dots-green)" opacity=".8">
           <polygon points="240,215 1040,215 1025,371"/>
           <polygon points="240,215 979,521 905,659"/>
           <polygon points="240,215 806,781 684,880"/>
@@ -102,126 +115,146 @@
           <polygon points="240,215 979,-91 1025,59"/>
         </g>
 
-        <!-- the moon, grinning -->
-        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="600" cy="78" r="52" fill="#fbf1d8"/>
-          <circle cx="600" cy="78" r="52" fill="url(#dots-yellow)" stroke="none" opacity=".7"/>
-          <circle cx="578" cy="58" r="8" fill="none" stroke-width="2.5"/>
-          <circle cx="625" cy="100" r="6" fill="none" stroke-width="2.5"/>
-          <path d="M583 72q6-7 12 0M607 70q6-7 12 0" fill="none"/>
-          <path d="M582 92q18 18 38 0" fill="none"/>
-          <path d="M572 88l6 2M623 88l6-3" fill="none" stroke-width="2"/>
+        <!-- ===== THE WHALE: tuxedo, BTC specs, cigarette, briefcase ===== -->
+        <g transform="translate(0 -28)" filter="url(#ink)" stroke="#1f1a17" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+          <!-- purple smoke -->
+          <path d="M612 212 C 600 188, 626 172, 612 148 C 598 124, 628 108, 612 80 C 602 62, 620 50, 612 34" fill="none" stroke="#a98bd6" stroke-width="7"/>
+          <path d="M512 150 C 496 130, 516 112, 500 92 C 488 74, 506 62, 496 44" fill="none" stroke="#a98bd6" stroke-width="6"/>
+          <!-- tux body -->
+          <path d="M436 540 L 452 335 C 468 294, 520 278, 560 278 C 600 278, 652 294, 668 335 L 684 540 Z" fill="#1f1a17"/>
+          <path d="M470 330 C 462 370, 460 420, 462 470 M650 330 C 658 370, 662 420, 662 470" fill="none" stroke="#3a8cc0" stroke-width="3"/>
+          <!-- shirt front + studs -->
+          <path d="M532 282 L 560 410 L 588 282 Z" fill="#fffaf0"/>
+          <path d="M532 282 L 505 360 L 520 350 L 545 400 M588 282 L 615 360 L 600 350 L 575 400" fill="none" stroke="#4d5b66" stroke-width="2.5"/>
+          <circle cx="560" cy="316" r="3.5" fill="#d9a441" stroke-width="1.5"/>
+          <circle cx="560" cy="340" r="3.5" fill="#d9a441" stroke-width="1.5"/>
+          <circle cx="560" cy="364" r="3.5" fill="#d9a441" stroke-width="1.5"/>
+          <!-- bow tie -->
+          <path d="M560 292 L 536 280 L 536 304 Z M560 292 L 584 280 L 584 304 Z" fill="#1f1a17"/>
+          <circle cx="560" cy="292" r="5" fill="#1f1a17"/>
+          <!-- neck + ears -->
+          <path d="M540 245 L 540 284 Q 560 292 580 284 L 580 245" fill="#f6bf94"/>
+          <path d="M522 168 C 508 162, 506 192, 524 196 M598 168 C 612 162, 614 192, 596 196" fill="#f6bf94"/>
+          <!-- head -->
+          <path d="M522 160 C 520 112, 600 112, 598 160 C 600 214, 586 252, 560 254 C 534 252, 520 214, 522 160 Z" fill="#f6bf94"/>
+          <path d="M528 226 l7 -6 M530 234 l7 -6 M584 226 l7 -6" fill="none" stroke-width="2"/>
+          <!-- slicked hair -->
+          <path d="M518 158 C 506 108, 540 86, 576 92 C 608 98, 614 128, 604 158 C 598 132, 574 118, 546 124 C 530 132, 524 144, 518 158 Z" fill="#1f1a17"/>
+          <path d="M548 102 C 566 98, 588 104, 598 120" fill="none" stroke="#3a8cc0" stroke-width="3"/>
+          <!-- smug brows -->
+          <path d="M530 148 L 552 152 M568 150 L 590 142" fill="none" stroke-width="4.5"/>
+          <!-- BTC spectacles -->
+          <path d="M556 168 h8 M530 166 l-8 -2 M590 166 l8 -3" fill="none" stroke-width="3"/>
+          <circle cx="543" cy="168" r="13" fill="#f08a24"/>
+          <circle cx="577" cy="168" r="13" fill="#f08a24"/>
+          <text x="543" y="174" text-anchor="middle" font-family="Bangers, Impact" font-size="16" fill="#fffaf0" stroke="none">&#8383;</text>
+          <text x="577" y="174" text-anchor="middle" font-family="Bangers, Impact" font-size="16" fill="#fffaf0" stroke="none">&#8383;</text>
+          <!-- nose -->
+          <path d="M560 176 C 556 190, 554 196, 564 198" fill="none" stroke-width="3"/>
+          <!-- mustache + cigarette -->
+          <path d="M530 210 C 542 198, 554 200, 560 206 C 566 200, 578 198, 590 210 C 580 220, 566 216, 560 211 C 554 216, 540 220, 530 210 Z" fill="#1f1a17"/>
+          <path d="M548 226 C 556 230, 566 230, 574 225" fill="none" stroke-width="2.5"/>
+          <path d="M574 218 L 606 214 L 607 221 L 575 225 Z" fill="#fffaf0" stroke-width="2"/>
+          <path d="M602 214 L 607 213.5 L 608 220.5 L 603 221 Z" fill="#d63a2a" stroke-width="1.5"/>
+          <!-- arm to briefcase -->
+          <path d="M458 340 C 440 380, 436 400, 448 420 L 474 414 C 470 396, 474 376, 480 360" fill="#1f1a17"/>
+          <path d="M444 418 l32 -6 l3 10 l-32 6 z" fill="#fffaf0" stroke-width="2.5"/>
+          <path d="M456 436 l6 -4 l12 2" fill="none" stroke="#d9a441" stroke-width="5"/>
+          <!-- briefcase -->
+          <path d="M448 440 C 448 424, 480 424, 480 440" fill="none" stroke-width="6"/>
+          <path d="M410 444 L 520 444 L 524 500 L 406 500 Z" fill="#8a5a2b"/>
+          <path d="M410 444 L 520 444 L 518 468 C 480 478, 450 478, 412 468 Z" fill="#a86d34"/>
+          <rect x="456" y="462" width="18" height="14" rx="2" fill="#d9a441" stroke-width="2.5"/>
+          <text x="428" y="494" font-family="Bangers, Impact" font-size="20" fill="#6b4220" stroke="none">&#8383;</text>
+          <text x="494" y="494" font-family="Bangers, Impact" font-size="20" fill="#6b4220" stroke="none">&#8383;</text>
+          <!-- hand on handle -->
+          <path d="M448 424 C 440 432, 446 446, 460 446 C 474 446, 480 436, 474 426 C 468 418, 454 418, 448 424 Z" fill="#f6bf94"/>
+          <path d="M452 434 h20" fill="none" stroke-width="2"/>
         </g>
 
-        <!-- rocket headed for it -->
-        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3" stroke-linejoin="round">
-          <path d="M450 250 C 470 210, 485 170, 505 140" fill="none" stroke-dasharray="3 9" stroke-linecap="round" stroke-width="3.5"/>
-          <g transform="translate(528 118) rotate(45)">
-            <path class="flame" d="M-9 36 L0 64 L9 36 Z" fill="#d63a2a"/>
-            <path d="M-5 36 L0 50 L5 36 Z" fill="#f4c534" stroke-width="1.5"/>
-            <path d="M-13 18 L-24 38 L-10 34 Z M13 18 L24 38 L10 34 Z" fill="#d63a2a"/>
-            <path d="M0 -34 C 14 -20, 14 20, 10 36 L -10 36 C -14 20, -14 -20, 0 -34 Z" fill="#fbf1d8"/>
-            <path d="M-11.5 -6h23" fill="none"/>
-            <path d="M0 -34 C 8 -26, 10 -18, 11.5 -6 L-11.5 -6 C -10 -18, -8 -26, 0 -34Z" fill="#d63a2a"/>
-            <circle cx="0" cy="8" r="6" fill="#9fd0e6"/>
+        <!-- ===== THE ANON: balaclava, DEGEN cap, green wayfarers, gold chain ===== -->
+        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+          <!-- suit -->
+          <path d="M60 495 C 70 400, 110 352, 170 334 L 306 334 C 366 352, 404 400, 414 495 Z" fill="#1f1a17"/>
+          <path d="M108 410 C 116 380, 136 360, 166 348 M334 362 C 362 378, 382 410, 390 456" fill="none" stroke="#3a8cc0" stroke-width="4"/>
+          <!-- shirt, collar, tie -->
+          <path d="M196 334 L 238 426 L 280 334 Z" fill="#fffaf0"/>
+          <path d="M226 350 L 250 350 L 245 366 L 256 430 L 238 452 L 220 430 L 231 366 Z" fill="url(#tie-glyph)"/>
+          <path d="M226 350 L 250 350 L 245 366 L 231 366 Z" fill="#2f9e57"/>
+          <path d="M194 332 L 214 372 L 234 350 Z M282 332 L 262 372 L 242 350 Z" fill="#fffaf0" stroke-width="3"/>
+          <!-- lapels -->
+          <path d="M194 336 L 178 352 L 212 440 L 226 432 Z M282 336 L 298 352 L 264 440 L 250 432 Z" fill="#1f1a17" stroke="#4d5b66" stroke-width="2.5"/>
+          <!-- balaclava neck with folds -->
+          <path d="M196 288 L 194 340 Q 238 356 282 340 L 280 288 Z" fill="#1f1a17"/>
+          <path d="M204 318 C 222 326, 254 326, 272 316 M206 334 C 226 340, 250 340, 268 332" fill="none" stroke="#4d5b66" stroke-width="2.5"/>
+          <!-- balaclava head -->
+          <path d="M166 200 C 162 128, 314 128, 310 200 C 312 270, 292 316, 238 320 C 184 316, 164 270, 166 200 Z" fill="#1f1a17"/>
+          <path d="M292 214 C 300 246, 292 280, 270 304 M182 240 C 184 262, 192 282, 204 296" fill="none" stroke="#3a8cc0" stroke-width="4"/>
+          <!-- eye slot -->
+          <path d="M182 204 C 200 194, 276 194, 294 204 L 292 236 C 276 244, 200 244, 184 236 Z" fill="#f6bf94"/>
+          <!-- nose ridge under the mask -->
+          <path d="M240 246 C 254 262, 256 272, 242 276" fill="none" stroke="#4d5b66" stroke-width="3"/>
+          <!-- gold retainer chain -->
+          <path d="M182 214 C 164 258, 170 300, 196 332" fill="none" stroke-width="5"/>
+          <path d="M182 214 C 164 258, 170 300, 196 332" fill="none" stroke="#d9a441" stroke-width="2.5"/>
+          <path d="M296 214 C 314 262, 312 302, 296 342" fill="none" stroke-width="5"/>
+          <path d="M296 214 C 314 262, 312 302, 296 342" fill="none" stroke="#d9a441" stroke-width="2.5"/>
+          <!-- green wayfarers -->
+          <path d="M176 204 L 234 204 L 230 232 C 222 246, 194 246, 186 234 Z" fill="#2fbf6b"/>
+          <path d="M244 204 L 302 204 L 294 234 C 286 246, 258 246, 250 232 Z" fill="#2fbf6b"/>
+          <path d="M186 226 C 196 242, 222 242, 229 228 L 230 232 C 222 246, 194 246, 186 234 Z M252 226 C 262 242, 288 242, 295 228 L 294 234 C 286 246, 258 246, 250 232 Z" fill="#1d6b3a" stroke="none"/>
+          <path d="M196 210 l-8 18 M206 210 l-8 18 M262 210 l-8 18 M272 210 l-8 18" fill="none" stroke="#e9fff0" stroke-width="3"/>
+          <path d="M176 204 L 234 204 M244 204 L 302 204 M234 208 L 244 208 M176 206 L 164 202 M302 206 L 314 202" fill="none" stroke-width="6"/>
+          <!-- DEGEN box-logo cap -->
+          <path d="M168 156 C 166 98, 204 72, 240 72 C 282 72, 312 100, 310 156 Z" fill="#d63a2a"/>
+          <path d="M240 76 C 236 104, 232 130, 230 156 M204 88 C 194 110, 188 132, 186 156 M278 88 C 290 110, 294 132, 294 156" fill="none" stroke-width="2.5"/>
+          <circle cx="240" cy="73" r="6" fill="#d63a2a"/>
+          <path d="M252 146 C 304 132, 366 142, 392 170 C 362 176, 304 164, 258 162 Z" fill="#a82a1e"/>
+          <path d="M168 156 C 210 166, 270 166, 310 156" fill="none"/>
+          <rect x="202" y="100" width="76" height="26" fill="#d63a2a" stroke="#fffaf0" stroke-width="3"/>
+          <text x="240" y="121" text-anchor="middle" font-family="Bangers, Impact" font-size="21" fill="#fffaf0" stroke="none" letter-spacing="1" font-style="italic">DEGEN</text>
+          <!-- the glyph on the forehead -->
+          <use href="#glyph" x="226" y="164" width="26" height="26" color="#fffaf0" stroke="none"/>
+          <!-- sleeve rising from the suit to the bag -->
+          <path d="M348 500 L 384 404 C 390 390, 410 388, 424 398 L 402 500 Z" fill="#1f1a17"/>
+          <path d="M372 470 C 380 440, 388 420, 396 410" fill="none" stroke="#3a8cc0" stroke-width="3"/>
+          <path d="M378 398 l 34 -8 l 6 16 l -34 8 z" fill="#fffaf0" stroke-width="2.5"/>
+          <g transform="translate(-6 -64)">
+            <!-- GAS FEE GUMMY BEARS -->
+            <path d="M300 386 L 380 378 L 388 482 L 308 492 Z" fill="#d63a2a"/>
+            <path d="M300 386 l6 -8 l6 7 l6 -8 l6 7 l6 -8 l6 7 l6 -8 l6 7 l6 -8 l6 7 l6 -8 l6 7 l6 -8 l2 6" fill="#d9d9d9" stroke-width="2.5"/>
+            <path d="M306 455 C 330 446, 360 444, 386 448 L 387 462 C 362 458, 332 460, 307 468 Z" fill="#f4c534" stroke-width="2"/>
+            <text x="338" y="420" text-anchor="middle" font-family="Bangers, Impact" font-size="22" fill="#fffaf0" stroke="#1f1a17" stroke-width="1" paint-order="stroke" transform="rotate(-5 338 420)">GAS FEE</text>
+            <text x="336" y="437" text-anchor="middle" font-family="Bangers, Impact" font-size="12" fill="#fffaf0" stroke="none" transform="rotate(-5 336 437)">GUMMY BEARS</text>
+            <g stroke-width="1.5">
+              <circle cx="322" cy="478" r="6" fill="#3a8cc0"/><circle cx="342" cy="476" r="6" fill="#f08a24"/>
+              <circle cx="362" cy="474" r="6" fill="#2f9e57"/><circle cx="378" cy="472" r="5" fill="#f4c534"/>
+            </g>
+            <!-- hand gripping the bag -->
+            <path d="M372 410 C 390 400, 404 420, 400 440 C 398 460, 384 470, 372 466 C 366 452, 368 424, 372 410 Z" fill="#f6bf94"/>
+            <path d="M372 424 h-10 M372 440 h-12 M374 456 h-10" fill="none" stroke-width="3"/>
           </g>
         </g>
 
-        <!-- ticker-tape machine under its glass dome -->
-        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M490 470 L 510 400 L 610 400 L 630 470 Z" fill="#8a5a2b"/>
-          <path d="M490 470 L 510 400 L 610 400 L 630 470 Z" fill="url(#hatch)" opacity=".35" stroke="none"/>
-          <path d="M500 400 h120 v-12 h-120 z" fill="#c9923b"/>
-          <circle cx="560" cy="345" r="20" fill="#c9923b"/>
-          <circle cx="560" cy="345" r="5" fill="#1f1a17"/>
-          <path d="M545 330l30 30M575 330l-30 30" fill="none" stroke-width="2"/>
-          <path d="M517 388 L517 318 C 517 262, 603 262, 603 318 L603 388" fill="#9fd0e6" fill-opacity=".45"/>
-          <path d="M530 300 C 534 285, 545 277, 556 275" fill="none" stroke="#fffaf0" stroke-width="5"/>
-          <circle cx="560" cy="262" r="7" fill="#c9923b"/>
-        </g>
-
-        <!-- ticker tape streaming across the page -->
-        <g filter="url(#ink)">
-          <path id="tape" d="M-10 470 C 60 430, 110 392, 175 392 S 300 408, 360 398 S 480 352, 540 350" fill="none" stroke="#1f1a17" stroke-width="30" stroke-linecap="butt"/>
-          <path d="M-10 470 C 60 430, 110 392, 175 392 S 300 408, 360 398 S 480 352, 540 350" fill="none" stroke="#fbf1d8" stroke-width="24"/>
-        </g>
-        <text font-family="Patrick Hand, cursive" font-size="15" fill="#1f1a17" letter-spacing="1" dy="5">
-          <textPath href="#tape" startOffset="9%">PEPE &#9650;4,269% &#183; DOGE &#9650;420% &#183; WAGMI &#9650;&#8734; &#183; NGMI &#9660;99% &#183; FUD &#9660;0</textPath>
-        </text>
-
-        <!-- our humble anon -->
-        <g filter="url(#ink)" stroke="#1f1a17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-          <!-- suit -->
-          <path d="M80 495 C 90 400, 120 350, 180 335 L 300 335 C 360 350, 395 400, 405 495 Z" fill="#3a8cc0"/>
-          <path d="M80 495 C 90 400, 120 350, 180 335 L 300 335 C 360 350, 395 400, 405 495 Z" fill="url(#dots-ink)" opacity=".25" stroke="none"/>
-          <!-- shirt + tie -->
-          <path d="M195 335 L 240 420 L 285 335 Z" fill="#fffaf0"/>
-          <path d="M228 345 L 252 345 L 247 360 L 256 420 L 240 440 L 224 420 L 233 360 Z" fill="#d63a2a"/>
-          <path d="M195 335 L 222 390 L 205 385 M285 335 L 258 390 L 275 385" fill="none"/>
-          <!-- neck -->
-          <path d="M210 300 L 210 340 Q 240 355 270 340 L 270 300" fill="#f6bf94"/>
-          <!-- ears -->
-          <path d="M172 232 C 155 225, 152 262, 176 266" fill="#f6bf94"/>
-          <path d="M308 232 C 325 225, 328 262, 304 266" fill="#f6bf94"/>
-          <!-- head -->
-          <path d="M175 205 C 172 270, 195 318, 240 320 C 285 318, 308 270, 305 205 C 300 160, 180 160, 175 205 Z" fill="#f6bf94"/>
-          <path d="M180 270 C 190 300, 210 314, 232 318" fill="none" stroke-width="2" opacity=".6"/>
-          <!-- cheek hatching -->
-          <path d="M188 262l8-8M192 270l8-8M284 262l8-8M280 270l8-8" fill="none" stroke-width="2"/>
-          <!-- eyebrows way up -->
-          <path d="M196 196 Q 212 180 228 192M252 192 Q 268 180 284 196" fill="none" stroke-width="5"/>
-          <!-- saucer eyes -->
-          <ellipse cx="213" cy="220" rx="15" ry="19" fill="#fffaf0"/>
-          <ellipse cx="267" cy="220" rx="15" ry="19" fill="#fffaf0"/>
-          <circle cx="216" cy="222" r="4.5" fill="#1f1a17"/>
-          <circle cx="264" cy="222" r="4.5" fill="#1f1a17"/>
-          <!-- nose -->
-          <path d="M240 228 C 236 245, 232 250, 244 253" fill="none" stroke-width="3"/>
-          <!-- big open grin -->
-          <path d="M205 268 C 215 305, 265 305, 275 268 Z" fill="#7a1d14"/>
-          <path d="M207 270 L 273 270 L 270 280 L 210 280 Z" fill="#fffaf0" stroke-width="2.5"/>
-          <path d="M226 296 C 234 290, 246 290, 254 296" fill="#d63a2a" stroke-width="2"/>
-          <!-- fedora -->
-          <path d="M150 178 C 150 160, 330 160, 330 178 C 330 192, 150 192, 150 178 Z" fill="#6b5a45"/>
-          <path d="M178 172 C 176 130, 186 100, 205 96 C 220 104, 260 104, 275 96 C 294 100, 304 130, 302 172 Z" fill="#6b5a45"/>
-          <path d="M205 96 C 222 120, 258 120, 275 96" fill="none" stroke-width="3"/>
-          <path d="M179 152 C 220 160, 260 160, 301 152 L 302 172 C 260 178, 220 178, 178 172 Z" fill="#1f1a17"/>
-          <path d="M150 178 C 150 160, 330 160, 330 178" fill="url(#hatch)" opacity=".35" stroke="none"/>
-          <!-- press card in the hatband -->
-          <path d="M280 150 l20 -4 l3 16 l-20 4 z" fill="#fffaf0" stroke-width="2"/>
-          <!-- sweat drops -->
-          <path d="M160 200 C 150 215, 156 224, 162 224 C 168 224, 170 214, 160 200 Z" fill="#9fd0e6" stroke-width="2.5"/>
-          <path d="M320 205 C 311 218, 316 226, 321 226 C 327 226, 329 217, 320 205 Z" fill="#9fd0e6" stroke-width="2.5"/>
-          <!-- shock lines -->
-          <path d="M130 150 l-22 -14M126 180 l-26 0M140 122 l-14 -20M350 150 l22 -14M354 180 l26 0M340 122 l14 -20" fill="none" stroke-width="4"/>
-          <!-- hands gripping the tape -->
-          <path d="M150 372 C 140 392, 150 418, 172 418 C 192 418, 200 400, 196 380 C 190 366, 160 360, 150 372 Z" fill="#f6bf94"/>
-          <path d="M162 392 h26M160 402 h28" fill="none" stroke-width="2.5"/>
-          <path d="M332 372 C 322 392, 332 418, 354 416 C 374 414, 380 396, 376 378 C 370 364, 342 360, 332 372 Z" fill="#f6bf94"/>
-          <path d="M342 390 h26M342 400 h28" fill="none" stroke-width="2.5"/>
-        </g>
-
-        <!-- KA-CHING! -->
-        <g class="sfx-wiggle">
-          <polygon filter="url(#ink-heavy)" points="578,108 591,144 622,112 613,157 654,143 630,176 660,186 636,203 654,225 625,228 633,258 602,242 600,284 578,259 558,277 553,244 515,267 525,232 490,229 522,203 476,184 530,178 496,139 541,155 539,121 565,145" transform="translate(0 20)" fill="#d63a2a" stroke="#1f1a17" stroke-width="4" stroke-linejoin="round"/>
-          <text x="572" y="222" text-anchor="middle" font-family="Bangers, Impact, sans-serif" font-size="36" fill="#f4c534" stroke="#1f1a17" stroke-width="2" paint-order="stroke" transform="rotate(-10 572 212)">KA-CHING!</text>
-        </g>
+        <!-- CHOMP! -->
+        <text class="sfx-wiggle" x="352" y="296" text-anchor="middle" font-family="Bangers, Impact" font-size="34" fill="#f4c534" stroke="#1f1a17" stroke-width="2.5" paint-order="stroke" transform="rotate(-12 352 286)">CHOMP!</text>
       </svg>
 
-      <div class="caption">Episode&nbsp;1: in which our humble anon discovers the chain&hellip;</div>
+      <div class="caption">Step right up to the Degen Emporium&hellip; purveyors of fine degeneracy since block&nbsp;#1!</div>
 
-      <div class="balloon" style="top:6%; left:49%; max-width:27%; --tail-x:14%;">
-        <span id="splash-title">Holy moly! I aped my whole paycheck&hellip; and we're up <b>4,269%!</b></span>
+      <div class="balloon" style="top:26%; left:3%; max-width:16%; --tail-x:70%; --tail-skew:-40deg;">gm.</div>
+      <div class="balloon" style="top:4%; left:48%; max-width:27%; --tail-x:78%; --tail-skew:30deg;">
+        <span id="splash-title">Gas fees, kid? <b>Put it on my tab!</b></span>
       </div>
 
       <div class="splash-cta">
-        <a class="btn btn--red" href="onboarding.html">Start reading &#9656;</a>
+        <a class="btn btn--red" href="onboarding.html">Enter the Emporium &#9656;</a>
         <a class="btn" href="#store">gm, ser</a>
       </div>
     </section>
 
     <!-- ---------- STORE ---------- -->
-    <a class="panel panel--store" id="store" href="store.html" aria-label="Store: Degen Mart">
+    <a class="panel panel--store" id="store" href="store.html" aria-label="Store: Emporium Goods">
       <svg class="scene" viewBox="0 0 480 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <rect width="480" height="240" fill="#9fd0e6"/>
         <rect width="480" height="240" fill="url(#dots-blue)" opacity=".5"/>
@@ -232,7 +265,7 @@
           <rect x="70" y="28" width="360" height="222" fill="url(#bricks)"/>
           <!-- sign -->
           <rect x="100" y="36" width="300" height="46" fill="#fbf1d8"/>
-          <text x="250" y="70" text-anchor="middle" font-family="Bangers, Impact, sans-serif" font-size="34" fill="#d63a2a" stroke="#1f1a17" stroke-width="1.2" letter-spacing="2">DEGEN MART</text>
+          <text x="250" y="70" text-anchor="middle" font-family="Bangers, Impact, sans-serif" font-size="34" fill="#d63a2a" stroke="#1f1a17" stroke-width="1.2" letter-spacing="2">EMPORIUM GOODS</text>
           <!-- awning -->
           <path d="M80 92 L420 92 L438 128 L62 128 Z" fill="url(#stripes)"/>
           <path d="M62 128 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0" fill="#d63a2a"/>
@@ -475,12 +508,13 @@
           <rect x="78" y="128" width="94" height="56" fill="#9fd0e6"/>
           <path d="M78 184 h94" fill="none" stroke-width="5"/>
           <text x="125" y="212" text-anchor="middle" font-family="Bangers" font-size="22" fill="#d63a2a" stroke="none" letter-spacing="1">TICKETS</text>
-          <!-- attendant in the window -->
-          <path d="M100 184 C 100 164, 150 164, 150 184 Z" fill="#d63a2a"/>
-          <circle cx="125" cy="152" r="14" fill="#f6bf94"/>
-          <path d="M108 146 h34 l-4 -10 h-26 z" fill="#3a8cc0"/>
-          <path d="M118 157 q7 6 14 0" fill="none" stroke-width="2.5"/>
-          <circle cx="120" cy="150" r="1.8" fill="#1f1a17"/><circle cx="131" cy="150" r="1.8" fill="#1f1a17"/>
+          <!-- the anon minding the booth -->
+          <path d="M100 184 C 100 164, 150 164, 150 184 Z" fill="#1f1a17"/>
+          <path d="M111 152 C 110 132, 140 132, 139 152 C 140 166, 134 172, 125 172 C 116 172, 110 166, 111 152 Z" fill="#1f1a17"/>
+          <path d="M113 148 h24 v8 h-24 z" fill="#f6bf94" stroke-width="2"/>
+          <path d="M113 149 h10 v5 h-10z M127 149 h10 v5 h-10z" fill="#2fbf6b" stroke-width="2"/>
+          <path d="M110 140 C 110 124, 140 124, 140 140 Z" fill="#d63a2a"/>
+          <path d="M134 138 C 146 134, 156 138, 160 144 C 150 144, 142 142, 136 142 Z" fill="#a82a1e"/>
           <!-- signpost -->
           <g transform="translate(200 0)">
           <path d="M300 225 v-120" fill="none" stroke-width="6"/>
@@ -520,7 +554,7 @@
   </nav>
 
   <footer class="fine-print">
-    <span>&copy; Tales From The Chain Comics Group &middot; All rights reserved, ser</span>
+    <span>&copy; The Degen Emporium &middot; All rights reserved, ser</span>
     <span>NFA &middot; DYOR &middot; Not financial advice. Printed on 100% recycled memes.</span>
   </footer>
 </main>

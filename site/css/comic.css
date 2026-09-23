@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TALES FROM THE CHAIN — 1950s comic book styles
+   THE DEGEN EMPORIUM — 1950s comic book styles
    Shared by every page. Panels, captions, balloons and SFX live here.
    ========================================================================== */
 
@@ -14,7 +14,15 @@
   --sky: #9fd0e6;
   --green: #6ea35a;
   --skin: #f6bf94;
-  --desk: #2b2320;
+  --desk: #151412;
+  /* brand accents, lifted from the mascot art */
+  --lime: #b6e324;
+  --money: #2f9e57;
+  --gold: #d9a441;
+  --smoke: #a98bd6;
+  --cap-red: #d63a2a;
+  /* the Emporium glyph as a tileable monogram */
+  --glyph-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square'%3E%3Cpath d='M9 6l9 7-9 7M23 8l-9 7 9 7'/%3E%3Cpath d='M37 34l9 7-9 7M51 36l-9 7 9 7'/%3E%3C/g%3E%3C/svg%3E");
 
   --font-sfx: "Bangers", "Impact", sans-serif;
   --font-letter: "Patrick Hand", "Comic Sans MS", cursive;
@@ -35,8 +43,9 @@ body {
   background-color: var(--desk);
   /* worn wooden desk under the comic */
   background-image:
-    repeating-linear-gradient(92deg, rgba(255,255,255,.025) 0 2px, transparent 2px 9px),
-    radial-gradient(ellipse at 50% 0%, #4a3a30 0%, var(--desk) 70%);
+    radial-gradient(ellipse at 50% 0%, rgba(182,227,36,.10) 0%, transparent 60%),
+    linear-gradient(rgba(21,20,18,.93), rgba(21,20,18,.93)),
+    var(--glyph-tile);
   color: var(--ink);
   font-family: var(--font-letter);
   overflow-x: hidden;
@@ -80,16 +89,18 @@ body {
   gap: 18px;
   padding: 10px 14px 12px;
   margin-bottom: var(--gutter);
-  background: var(--red);
+  background-color: var(--ink);
+  background-image: linear-gradient(rgba(31,26,23,.9), rgba(31,26,23,.9)), var(--glyph-tile);
   border: 5px solid var(--ink);
   border-radius: var(--wobble-a);
+  box-shadow: inset 0 0 0 3px var(--lime);
   position: relative;
 }
 
 .masthead::before { /* halftone shading on the red band */
   content: "";
   position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(0,0,0,.28) 1.2px, transparent 1.6px);
+  background-image: radial-gradient(rgba(182,227,36,.18) 1.2px, transparent 1.6px);
   background-size: 7px 7px;
   mask-image: linear-gradient(to bottom, transparent 30%, #000);
   -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000);
@@ -119,29 +130,46 @@ body {
   font-size: clamp(2.3rem, 7.2vw, 5.6rem);
   line-height: .9;
   letter-spacing: .02em;
-  color: var(--yellow);
+  color: var(--lime);
   -webkit-text-stroke: 3px var(--ink);
   paint-order: stroke fill;
-  /* chunky 3-D extrusion, slightly off-register */
+  /* chunky 3-D extrusion in cap red, slightly off-register */
   text-shadow:
-    2px 2px 0 var(--ink), 4px 4px 0 var(--ink), 6px 6px 0 var(--ink), 8px 8px 0 var(--ink),
+    2px 2px 0 var(--cap-red), 4px 4px 0 var(--cap-red), 6px 6px 0 var(--cap-red), 8px 8px 0 #7a1d14,
     -2px 1px 0 rgba(58,140,192,.55);
   transform: rotate(-1.5deg) skewX(-4deg);
 }
 .logo .small {
   display: block;
-  font-size: .38em;
+  font-size: .34em;
+  color: var(--gold);
+  text-shadow: 2px 2px 0 var(--ink);
+  letter-spacing: .3em;
+  transform: translateX(-1.4em);
+}
+/* EMPORIUM on a showman's ribbon */
+.logo .banner {
+  display: block;
+  width: max-content;
+  margin: 6px auto 0;
+  padding: .04em .6em .08em;
+  font-size: .42em;
+  letter-spacing: .22em;
   color: var(--paper);
-  letter-spacing: .25em;
-  transform: translateX(-12%);
+  -webkit-text-stroke: 1.5px var(--ink);
+  text-shadow: none;
+  background: var(--cap-red);
+  border: 3px solid var(--ink);
+  clip-path: polygon(0 0, 100% 0, 96% 50%, 100% 100%, 0 100%, 4% 50%);
+  transform: skewX(4deg) rotate(1deg);
 }
 
 .tagline {
   display: inline-block;
   margin: 10px 0 0;
   padding: 2px 12px 3px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--gold);
+  color: var(--ink);
   font-size: clamp(.8rem, 1.6vw, 1.05rem);
   text-transform: uppercase;
   letter-spacing: .08em;
@@ -164,6 +192,7 @@ body {
   box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 6px var(--ink);
 }
 .seal b { display: block; font-size: 1.35rem; color: var(--red); margin: 2px 0; }
+.seal-glyph { display: block; width: 26px; height: 26px; margin: 0 auto 3px; color: var(--ink); }
 
 /* ---------- Panel grid ---------- */
 
@@ -355,7 +384,7 @@ a.panel:hover .pow, a.panel:focus-visible .pow { transform: scale(1) rotate(-8de
   line-height: 1;
   color: var(--ink);
   text-decoration: none;
-  background: var(--yellow);
+  background: var(--lime);
   border: 3px solid var(--ink);
   border-radius: var(--wobble-b);
   box-shadow: 4px 4px 0 var(--ink);
@@ -436,6 +465,7 @@ a.panel:hover .pow, a.panel:focus-visible .pow { transform: scale(1) rotate(-8de
   .issue-box .date { display: none; }
   .seal { position: absolute; right: -8px; top: -12px; width: 64px; height: 64px; font-size: .5rem; }
   .seal b { font-size: .95rem; }
+  .seal-glyph { width: 16px; height: 16px; margin-bottom: 1px; }
   .title-block { padding-top: 22px; }
   .panels { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .panel, .panel--splash, .panel--store, .panel--news, .panel--eco,
