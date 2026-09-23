@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Degen Emporium</title>
+  <meta name="description" content="The Degen Emporium — PulseChain news, alpha and merch for the degens who HODL." />
+  <meta name="theme-color" content="#0b0f0a" />
+  <link rel="icon" type="image/png" href="assets/pulsechain-logo.png" />
+  <meta property="og:title" content="The Degen Emporium" />
+  <meta property="og:description" content="PulseChain news, alpha and merch for the degens who HODL." />
+  <meta property="og:image" content="assets/degen-emporium-banner.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="The Degen Emporium home">
+        <img src="assets/pulsechain-logo.png" alt="" width="40" height="40" />
+        <span class="brand-text">The Degen <span>Emporium</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main">
+        <a href="#news">News</a>
+        <a href="#store">Store</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#community">Community</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="cart-btn" href="#store" aria-label="Cart, 0 items">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2" /><circle cx="9" cy="20" r="1.4" /><circle cx="17" cy="20" r="1.4" /></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Price ticker ===== -->
+  <div class="ticker" aria-label="PulseChain token prices">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="top">
+      <div class="hero-banner">
+        <img src="assets/degen-emporium-banner.jpg" alt="The Degen Emporium — masked degen in a suit with HODL pin beside the graffiti logo" width="1500" height="500" />
+      </div>
+      <div class="container hero-content">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Powered by PulseChain</p>
+        <h1>News, alpha &amp; drip<br /><span class="grad-text">for PulseChain degens.</span></h1>
+        <p class="lede">Daily PulseChain headlines, ecosystem deep-dives and limited-run merch — all under one roof. No suits required (but we won't judge).</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#store">Shop the drop</a>
+          <a class="btn btn-ghost" href="#news">Read the news</a>
+        </div>
+        <ul class="hero-stats" aria-label="Site highlights">
+          <li><strong>24/7</strong><span>PulseChain coverage</span></li>
+          <li><strong>100%</strong><span>Degen approved</span></li>
+          <li><strong>0</strong><span>Paper hands</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== News ===== -->
+    <section class="section" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Latest from the chain</p>
+            <h2 id="news-title">PulseChain News</h2>
+          </div>
+          <a class="link-arrow" href="#news">All stories <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="news-filters" role="tablist" aria-label="Filter news">
+          <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="ecosystem">Ecosystem</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="defi">DeFi</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="guides">Guides</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="community">Community</button>
+        </div>
+
+        <!-- Sample stories — replace with your own articles / CMS feed -->
+        <div class="news-grid">
+          <article class="news-card news-feature" data-cat="ecosystem">
+            <div class="news-thumb thumb-a" aria-hidden="true">
+              <img src="assets/pulsechain-logo.png" alt="" />
+            </div>
+            <div class="news-body">
+              <span class="tag">Ecosystem</span>
+              <h3><a href="#news">Weekly Pulse: the biggest moves across the PulseChain ecosystem</a></h3>
+              <p>Our roundup of new launches, liquidity shifts and what the community is talking about this week.</p>
+              <p class="meta">Degen Desk · 5 min read</p>
+            </div>
+          </article>
+
+          <article class="news-card" data-cat="defi">
+            <div class="news-thumb thumb-b" aria-hidden="true"><span>PLSX</span></div>
+            <div class="news-body">
+              <span class="tag tag-blue">DeFi</span>
+              <h3><a href="#news">PulseX explained: how liquidity pools and farms work</a></h3>
+              <p class="meta">Degen Desk · 7 min read</p>
+            </div>
+          </article>
+
+          <article class="news-card" data-cat="guides">
+            <div class="news-thumb thumb-c" aria-hidden="true"><span>BRIDGE</span></div>
+            <div class="news-body">
+              <span class="tag tag-pink">Guides</span>
+              <h3><a href="#news">Bridging to PulseChain: a step-by-step beginner's guide</a></h3>
+              <p class="meta">Degen Desk · 6 min read</p>
+            </div>
+          </article>
+
+          <article class="news-card" data-cat="defi">
+            <div class="news-thumb thumb-d" aria-hidden="true"><span>HEX</span></div>
+            <div class="news-body">
+              <span class="tag tag-blue">DeFi</span>
+              <h3><a href="#news">HEX staking 101: stake lengths, T-shares and ending stakes</a></h3>
+              <p class="meta">Degen Desk · 8 min read</p>
+            </div>
+          </article>
+
+          <article class="news-card" data-cat="community">
+            <div class="news-thumb thumb-e" aria-hidden="true"><span>HODL</span></div>
+            <div class="news-body">
+              <span class="tag tag-yellow">Community</span>
+              <h3><a href="#news">Degen of the Month: spotlighting builders and meme lords</a></h3>
+              <p class="meta">Degen Desk · 4 min read</p>
+            </div>
+          </article>
+
+          <article class="news-card" data-cat="guides">
+            <div class="news-thumb thumb-f" aria-hidden="true"><span>SAFU</span></div>
+            <div class="news-body">
+              <span class="tag tag-pink">Guides</span>
+              <h3><a href="#news">Wallet security checklist: don't get rugged, don't get drained</a></h3>
+              <p class="meta">Degen Desk · 5 min read</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Store ===== -->
+    <section class="section section-store" id="store" aria-labelledby="store-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">The Emporium</p>
+            <h2 id="store-title">Fresh Drops</h2>
+          </div>
+          <a class="link-arrow" href="#store">Shop all <span aria-hidden="true">→</span></a>
+        </div>
+
+        <!-- Sample products — swap names, prices and images for your real inventory -->
+        <div class="product-grid">
+          <article class="product">
+            <div class="product-img prod-a">
+              <span class="badge">New</span>
+              <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 28l18-10h24l18 10 14 22-16 8-6-8v52H38V50l-6 8-16-8z" /><text x="60" y="72" text-anchor="middle">HODL</text></svg>
+            </div>
+            <div class="product-info">
+              <h3>HODL Heavyweight Hoodie</h3>
+              <p class="price">$65</p>
+            </div>
+            <button class="btn btn-add" data-add>Add to cart</button>
+          </article>
+
+          <article class="product">
+            <div class="product-img prod-b">
+              <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M26 34l20-12h28l20 12 12 18-16 8-4-6v48H34V54l-4 6-16-8z" /><path class="pulse" d="M38 64h12l4-8 6 18 6-26 5 16h11" /></svg>
+            </div>
+            <div class="product-info">
+              <h3>Pulse Heartbeat Tee</h3>
+              <p class="price">$32</p>
+            </div>
+            <button class="btn btn-add" data-add>Add to cart</button>
+          </article>
+
+          <article class="product">
+            <div class="product-img prod-c">
+              <span class="badge badge-hot">Hot</span>
+              <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M22 70c0-24 16-40 38-40s38 16 38 40z" /><path d="M20 70h86c4 0 6 8 0 10H20z" /><text x="60" y="62" text-anchor="middle">DEGEN</text></svg>
+            </div>
+            <div class="product-info">
+              <h3>Degen Snapback Cap</h3>
+              <p class="price">$28</p>
+            </div>
+            <button class="btn btn-add" data-add>Add to cart</button>
+          </article>
+
+          <article class="product">
+            <div class="product-img prod-d">
+              <span class="badge">Limited</span>
+              <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 16l30 16v34c0 18-14 30-30 38-16-8-30-20-30-38V32z" /><path class="pulse" d="M36 62h12l5-10 7 22 6-30 5 18h13" /></svg>
+            </div>
+            <div class="product-info">
+              <h3>Diamond Hands Sticker Pack</h3>
+              <p class="price">$12</p>
+            </div>
+            <button class="btn btn-add" data-add>Add to cart</button>
+          </article>
+        </div>
+
+        <div class="promo">
+          <div class="promo-text">
+            <p class="kicker">Pay the degen way</p>
+            <h3>Crypto checkout coming soon</h3>
+            <p>Pay with PLS and your favorite PulseChain tokens. Get on the list for early access and members-only drops.</p>
+          </div>
+          <img class="promo-logo" src="assets/pulsechain-logo.png" alt="PulseChain logo" width="160" height="160" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ecosystem ===== -->
+    <section class="section" id="ecosystem" aria-labelledby="eco-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">New to the chain?</p>
+            <h2 id="eco-title">Start Here</h2>
+          </div>
+        </div>
+        <div class="eco-grid">
+          <a class="eco-card" href="#news">
+            <span class="eco-num">01</span>
+            <h3>What is PulseChain?</h3>
+            <p>The basics: how it works, why it exists and what makes it different.</p>
+          </a>
+          <a class="eco-card" href="#news">
+            <span class="eco-num">02</span>
+            <h3>Set up a wallet</h3>
+            <p>Add the network, secure your seed phrase and stay safe out there.</p>
+          </a>
+          <a class="eco-card" href="#news">
+            <span class="eco-num">03</span>
+            <h3>Bridge &amp; swap</h3>
+            <p>Move assets over and make your first swap on a PulseChain DEX.</p>
+          </a>
+          <a class="eco-card" href="#news">
+            <span class="eco-num">04</span>
+            <h3>Explore dApps</h3>
+            <p>Our curated list of tools, dashboards and projects worth a look.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Newsletter / community ===== -->
+    <section class="section" id="community" aria-labelledby="community-title">
+      <div class="container">
+        <div class="newsletter">
+          <div>
+            <p class="kicker">Join the Emporium</p>
+            <h2 id="community-title">Get the alpha in your inbox</h2>
+            <p>One email a week. PulseChain news, new drops and exclusive discount codes. No spam, no rugs.</p>
+          </div>
+          <form class="signup" id="signup" novalidate>
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" type="email" name="email" placeholder="you@degenmail.com" autocomplete="email" required />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+            <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <img src="assets/pulsechain-logo.png" alt="" width="36" height="36" />
+          <span class="brand-text">The Degen <span>Emporium</span></span>
+        </a>
+        <p>PulseChain news and merch for people who HODL.</p>
+        <div class="socials">
+          <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" /></svg></a>
+          <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z" /></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3" /><path d="M10 9.5v5l4-2.5z" /></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#store">New drops</a></li>
+          <li><a href="#store">Apparel</a></li>
+          <li><a href="#store">Accessories</a></li>
+          <li><a href="#store">Shipping &amp; returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>News</h4>
+        <ul>
+          <li><a href="#news">Latest</a></li>
+          <li><a href="#news">Guides</a></li>
+          <li><a href="#ecosystem">Start here</a></li>
+          <li><a href="#community">Newsletter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Emporium</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> The Degen Emporium. All rights reserved.</p>
+      <p class="disclaimer">Nothing on this site is financial advice. Crypto is volatile — do your own research.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
